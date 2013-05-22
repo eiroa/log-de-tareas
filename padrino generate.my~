@@ -1,0 +1,26 @@
+$ padrino g project log-de-tareas -t rspec -d datamapper -e slim
+
+modificar [gem 'tilt', '1.3.7'] en [Gemfile]
+
+$ bundle install
+
+[components requeriment]
+gem 'pg', :group => 'production'
+gem 'dm-postgres-adapter', :group => 'production'
+gem 'dm-sqlite-adapter'
+
+
+[test requeriment]
+gem 'cucumber', :group => 'test'
+gem 'capybara', :group => 'test'
+gem 'dm-sqlite-adapter', :group => 'test'
+
+
+[database.rb]
+production = ENV['DATABASE_URL']
+
+
+crear carpeta y archivos cucumber
+crear un proyecto en otra carpeta con mismo nombre pero con cucumber comovalor del argumento de test 
+$ padrino g project log-de-tareas -t cucumber 
+mover la carpeta features al proyecto real
