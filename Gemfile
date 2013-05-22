@@ -17,7 +17,7 @@ gem 'rake'
 gem 'slim'
 gem 'pg', :group => 'production'
 gem 'dm-postgres-adapter', :group => 'production'
-gem 'dm-sqlite-adapter'
+gem 'dm-sqlite-adapter', :group => 'development'
 gem 'dm-validations'
 gem 'dm-timestamps'
 gem 'dm-migrations'
@@ -33,6 +33,8 @@ gem 'rack-test', :require => 'rack/test', :group => 'test'
 gem 'cucumber', :group => 'test'
 gem 'capybara', :group => 'test'
 gem 'dm-sqlite-adapter', :group => 'test'
+
+
 
 # Padrino Stable Gem
 gem 'padrino', '0.11.1'
