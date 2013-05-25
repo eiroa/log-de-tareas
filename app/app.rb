@@ -60,7 +60,7 @@ module LogDeTareas
 
     #borrar
     get '/' do
-      'Coming soon.'
+      'Coming soon. Staging'
     end
     #borrar
 

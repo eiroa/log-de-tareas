@@ -57,5 +57,12 @@ module LogDeTareas
     #     render 'errors/505'
     #   end
     #
+
+    #borrar
+    get '/' do
+      'Coming soon.'
+    end
+    #borrar
+
   end
 end
