@@ -1,7 +1,7 @@
-Feature: List task
-  In order to manage the task of a group
+Feature: List groups
+  In order to manage the groups
   As a teacher
-  I want to be able to list a tasks of the group
+  I want to be able to list the groups
 
   Background:
     Given there are not task
