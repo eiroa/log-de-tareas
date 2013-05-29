@@ -24,3 +24,10 @@ crear carpeta y archivos cucumber
 crear un proyecto en otra carpeta con mismo nombre pero con cucumber comovalor del argumento de test 
 $ padrino g project log-de-tareas -t cucumber 
 mover la carpeta features al proyecto real
+copiar de algun otro proyecto el archivo pars.rb que indica enlaces entre nombres de rutas y sus respectivas URL
+
+
+agregar remote de heroku a git
+git remote add heroku git@heroku.com:log-de-tareas.git
+
+
