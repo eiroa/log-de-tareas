@@ -9,11 +9,11 @@ Feature: List groups
     Given there is group with name "Grupo2"
     And I am logged in
 
-  Scenario: Easy way - first item
+  Scenario: Happy path - first item
     Given I am on "view groups"
     Then I should see "Grupo1"
 
-  Scenario: Easy way second item
+  Scenario: Happy path - second item
     Given I am on "view groups"
     Then I should see "Grupo2"
 

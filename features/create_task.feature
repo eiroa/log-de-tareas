@@ -8,7 +8,7 @@ Feature: Create task
     Given there is at least one group
     And I am logged in
 
-  Scenario: Easy way
+  Scenario: Happy path
     Given I am on "create task page"
     And I fill in "task[name]" with "Tarea1"
     And I fill in "task[description]" with "Descripcion de la tarea"

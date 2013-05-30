@@ -1,4 +1,5 @@
 *.my
+*~
 .DS_Store
 log/**/*
 tmp/**/*

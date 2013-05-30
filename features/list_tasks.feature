@@ -10,12 +10,12 @@ Feature: List task
     Given there is task with name "Tarea2"
     And I am logged in
 
-  Scenario: Easy way - first task
+  Scenario: Happy path - first task
     Given I am on "view groups"
     When I press "groups[grupo1][view]"
     Then I should see "Tarea1"
 
-  Scenario: Easy way - second task
+  Scenario: Happy path - second task
     Given I am on "view groups"
     When I press "groups[grupo1][view]"
     Then I should see "Tarea2"
