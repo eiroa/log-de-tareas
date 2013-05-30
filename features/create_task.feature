@@ -36,7 +36,7 @@ Feature: Create task
     When I press "saveButton"
     Then I should see "Error"
 
-  Scenario: Event id already exists
+  Scenario: Task id already exists
     Given I am on "create task page"
     And event with named "Tarea1" already exists
     And I fill in "task[name]" with "Tarea1"
