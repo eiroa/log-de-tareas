@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--bootstrap-->
+    <link href="style/bootstrap.css" rel="stylesheet">
+    <link href="style/bootstrap-responsive.css" rel="stylesheet">
+    <script src="script/bootstrap.js"></script>
+    <script src="script/bootstrap.min.js"></script>
+  <!--favicon-->
+    <meta property="og:image" content="image/favicon.png" />
+    <link rel="shortcut icon" href="image/favicon.ico" />
+  <!--general-->
+    <link href="style/general-style.css" rel="stylesheet">
+    <script src="script/general-script.js"></script>
+    
+  <title>Log de tareas</title>
+</head>
+
+
+<body>
+  <div class="body_frame">     
+
+      
+        <div class="info_frame">
+	    <p>Sesion</p>
+        </div><!--info_frame-->
+	<div class="header">
+          <div class="logo_frame">
+             <img id="gear" src="image/icon/logo/gear_0.png" class="logo" />
+          </div><!--logo_frame-->   
+	  <p>Log de tareas</p>
+        </div><!--header-->
+
+    <div class="container">
+      <section id="main-content">
+        <%= yield %>
+      </section>
+    </div><!-- /container -->
+
+  </div><!-- /body_frame -->
+</body>
+</html>

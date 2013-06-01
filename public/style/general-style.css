@@ -1,0 +1,59 @@
+body{
+    background-color: #DDD;
+}
+
+.body_frame{
+    height: auto;
+    min-height: 600px;
+    margin: 0;
+    padding: 0;
+    background-color: #EEF;
+    overflow: hidden;
+}
+
+
+.logo{
+    float:left;
+    width: 100px;
+    height: 100px;
+    background-color: black;
+}
+
+.header{
+    margin: 0 30px;
+    background-color: #555555;
+    height: 100px;
+    margin-bottom: 30px;	
+}
+
+.info_frame{
+    margin-left: 0;
+    height: 40px;
+    background-color: #222;
+}
+
+.header p{
+    font-weight: bold;
+    font-size: 70px;
+    line-height: 90px;
+    text-indent: 40px;
+    color: #cccccc;
+}
+
+.gear_frame{
+    float:left;
+    width: 200px;
+    height: 200px;
+    margin: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+

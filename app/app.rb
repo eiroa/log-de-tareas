@@ -59,7 +59,7 @@ module LogDeTareas
     #   end
     #
 
-		configure :development, :travis do
+    configure :development, :travis do
       use OmniAuth::Builder do
         provider :developer
       end
@@ -93,12 +93,12 @@ module LogDeTareas
         account = Account.find_by_provider_and_uid(auth["provider"], auth["uid"]) || 
                 Account.create_with_omniauth(auth)
         set_current_account(account)
-        redirect "/estasLogueado"
+        redirect "/task"
     end
 
-		get :estasLogueado do
-			'Estas logueado'
-		end
+    get :task do
+	render '/task/show'
+    end
 
   end
 end
