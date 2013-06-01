@@ -5,4 +5,8 @@ class Group
   property :id, Serial
   property :name, String
 
+  def initialize(nameP)
+    self.name = nameP
+  end
+
 end
