@@ -9,7 +9,6 @@ class Account
   property :uid, String
   property :provider, String
 
-
   def friendly_name
     name.nil? ? uid : name
   end

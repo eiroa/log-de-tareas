@@ -77,7 +77,7 @@ module LogDeTareas
     end
     
     access_control.roles_for :any do |role|
-        role.protect "/events"
+        role.protect "/groups"
     end
 
     get '/' do
@@ -93,11 +93,11 @@ module LogDeTareas
         account = Account.find_by_provider_and_uid(auth["provider"], auth["uid"]) || 
                 Account.create_with_omniauth(auth)
         set_current_account(account)
-        redirect "/task"
+        redirect "/groups"
     end
 
-    get :task do
-	render '/task/show'
+    get :groups do
+	render '/groups/show'
     end
 
   end
