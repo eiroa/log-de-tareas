@@ -5,5 +5,5 @@
 :script: jquery
 :renderer: slim
 :stylesheet: none
-:namespace: Camilo
+:namespace: LogDeTareas
 :migration_format: number

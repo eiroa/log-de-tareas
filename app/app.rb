@@ -77,12 +77,12 @@ module LogDeTareas
 
     
     access_control.roles_for :any do |role|
-        role.protect "/groups"
+        role.protect "/group"
     end
 
     get '/' do
       if(current_account)
-        redirect '/groups' 
+        redirect '/group' 
       else
         redirect '/index'
       end     
@@ -102,13 +102,9 @@ module LogDeTareas
         account = Account.find_by_provider_and_uid(auth["provider"], auth["uid"]) || 
                 Account.create_with_omniauth(auth)
         set_current_account(account)
-        redirect "/groups"
+        redirect "/group"
     end
  
-
-    get :groups do
-	render 'groups/show'
-    end
 
     get '/index' do
         render '/home/index'

@@ -22,7 +22,18 @@
 
       
         <div class="info_frame">
-	    <p>Sesion</p>
+
+          <% 
+          if current_account 
+               %>
+               <li><a href="/" title="Inicio">Inicio</a></li>
+               <li><a rel="tooltip" href="/" title="Profile"><%= current_account.friendly_name %></a></li>
+               <li><a rel="tooltip" href="/logout" title="Profile">Cerrar sesi&oacute;n</a></li>
+               <% 
+          end
+          %>
+
+
         </div><!--info_frame-->
 	<div class="header">
           <div class="logo_frame">
