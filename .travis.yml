@@ -1,6 +1,6 @@
 language: ruby
 before_script: 
-  - mysql -e 'create database log_de_tareas_travis;'
+  - mysql -e 'create database log_de_tareas_test;'
   - "sh -e /etc/init.d/xvfb start"
 script: PADRINO_ENV=travis padrino rake
 
