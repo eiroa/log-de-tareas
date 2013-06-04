@@ -9,10 +9,12 @@ Feature: List groups
     Given there is group with name "Grupo2"
     And I am logged in
 
+	@wip
   Scenario: Happy path - first item
     Given I am on "view groups"
     Then I should see "Grupo1"
 
+	@wip
   Scenario: Happy path - second item
     Given I am on "view groups"
     Then I should see "Grupo2"

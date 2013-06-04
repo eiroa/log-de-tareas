@@ -59,7 +59,7 @@ module LogDeTareas
     #   end
     #
 
-    configure :development, :travis do
+    configure :development, :travis, :test do
       use OmniAuth::Builder do
         provider :developer
       end
@@ -88,7 +88,7 @@ module LogDeTareas
       end     
     end
 
-    get :login do
+    get '/login' do
       render 'home/login'
     end
 
@@ -109,6 +109,10 @@ module LogDeTareas
     get '/index' do
         render '/home/index'
     end
+
+ 		get '/groups/successful_creation' do
+    	"The group #{params[:group[name]]} has been created"
+  	end
 
   end
 end

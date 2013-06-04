@@ -8,6 +8,7 @@ Feature: Create task
     Given there is at least one group
     And I am logged in
 
+	@wip
   Scenario: Happy path
     Given I am on "create task page"
     And I fill in "task[name]" with "Tarea1"
@@ -15,6 +16,7 @@ Feature: Create task
     When I press "saveButton"
     Then I should see "The task Tarea1 has been created"
 
+	@wip
   Scenario: Name is blank
     Given I am on "create task page"
     And I fill in "task[name]" with " "
@@ -22,6 +24,7 @@ Feature: Create task
     When I press "saveButton"
     Then I should see "Error"
 
+	@wip
   Scenario: Description is blank
     Given I am on "create task page"
     And I fill in "task[name]" with "Tarea1"
@@ -29,6 +32,7 @@ Feature: Create task
     When I press "saveButton"
     Then I should see "Error"
 
+	@wip
   Scenario: Name is a symbol
     Given I am on "create task page"
     And I fill in "task[name]" with "&"
@@ -36,6 +40,7 @@ Feature: Create task
     When I press "saveButton"
     Then I should see "Error"
 
+	@wip
   Scenario: Task id already exists
     Given I am on "create task page"
     And event with named "Tarea1" already exists

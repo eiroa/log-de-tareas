@@ -10,11 +10,13 @@ Feature: List task
     Given there is task with name "Tarea2"
     And I am logged in
 
+	@wip
   Scenario: Happy path - first task
     Given I am on "view groups"
     When I press "groups[grupo1][view]"
     Then I should see "Tarea1"
 
+	@wip
   Scenario: Happy path - second task
     Given I am on "view groups"
     When I press "groups[grupo1][view]"

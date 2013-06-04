@@ -235,21 +235,37 @@ Given /^the note "([^"]*)", "([^"]*)" exists$/ do |arg1, arg2|
   note.save
 end
                               
-Given /^que tengo la palabra "([^"]*)"$/ do |palabra|
-  visit("/palabra?p=#{palabra}")
+Given(/^there are not groups$/) do
+  Group.destroy
 end
 
-When /^elijo "([^"]*)"$/ do |letra|
-  visit("/adivinar?l=#{letra}") 
+Given(/^I am logged in$/) do
+  visit "/login"
+  fill_in("name", :with => "cucumber_user")
+  fill_in("email", :with => "cucumber_user@someplace.com")
+  click_button "submit"
 end
 
-Then /^deberia ver "([^"]*)"$/ do |esperado|
-    if page.respond_to? :should
-      page.should have_content(esperado)
-    else
-      assert page.has_content?(esperado)
-    end
+Given(/^event with named "(.*?)" already exists$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
 end
+
+Given(/^there are not task$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+Given(/^there is at least one group$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+Given(/^there is group with name "(.*?)"$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+Given(/^there is task with name "(.*?)"$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
 
 
 
