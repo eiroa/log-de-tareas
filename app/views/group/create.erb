@@ -3,15 +3,13 @@
 <header class="jumbotron subhead" id="overview">
     <div>
       <div class="well centerlogin">
-	<form method='get' action='/groups/successful_creation' noValidate='noValidate'>
+	<form method='get' action='/group/new' noValidate='noValidate'>
 		    <%= csrf_token_field %>
 
 	<label for='name'>Name:</label>
-	<input class="span4" type='text' id='group[name]' name='group[name]' placeholder="name"/>
+	<input class="span4" type='text' id='group[name]' name='group_name' placeholder="name"/>
 
-	<label for='description'>Description:</label>
-	<textarea class="span4" type='text' id='group[description]' name='group[description]' placeholder="a description"></textarea><br/>
-
+	
 	<button type='submit' id="submit">Create</button> 
 
 	</form>

@@ -13,16 +13,13 @@ Feature: List groups
     Given I am on "the index group page"
     Then I should see "Grupo1"
 
-
-  Scenario: I have two groups with names "Grupo1" and "Grupo2"
+ Scenario: I have two groups with names "Grupo1" and "Grupo2"
     Given there is group with name "Grupo1"
     Given there is group with name "Grupo2"
     Given I am on "the index group page"
 		Then I should see "Grupo1"
     Then I should see "Grupo2"
 
-
 	Scenario: I don't have groups
     Given I am on "the index group page"
 		Then I shoud see "No tienes grupos creados"
-

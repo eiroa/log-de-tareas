@@ -105,6 +105,9 @@ module LogDeTareas
         redirect "/group"
     end
  
+    get '/group_create' do
+      render 'group/create'
+    end
 
 
   end

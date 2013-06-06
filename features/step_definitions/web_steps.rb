@@ -246,8 +246,8 @@ end
 
 Given(/^I am logged in$/) do
   visit "/login"
-  fill_in("name", :with => "cucumber_user")
-  fill_in("email", :with => "cucumber_user@someplace.com")
+  fill_in("name", :with => "test_account")
+  fill_in("email", :with => "account@test.com")
   click_button "submit"
 end
 
@@ -257,6 +257,7 @@ end
 
 Given(/^there are not task$/) do
   pending # express the regexp above with the code you wish you had
+  
 end
 
 Given(/^there is at least one group$/) do
@@ -264,7 +265,7 @@ Given(/^there is at least one group$/) do
 end
 
 Given(/^there is group with name "(.*?)"$/) do |name|
-	account = Account.create_with_name('a_account')
+  account = Account.find_by_uid('account@test.com')
 	Group.new(name,account)
 end
 
