@@ -9,8 +9,11 @@ class Account
   property :uid, String
   property :provider, String
 
-  def friendly_name
-    name.nil? ? uid : name
+  def self.create_with_name(name)
+    account = Account.new
+    account.name = name
+    account.save
+    account
   end
 
   def self.create_with_omniauth(auth)
@@ -21,4 +24,17 @@ class Account
     account.save
     account
   end
+
+  def friendly_name
+    name.nil? ? uid : name
+  end
+  
+  def get_groups    
+    Group.find_all_by_account(self)
+  end
+
 end
+
+
+
+

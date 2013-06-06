@@ -1,0 +1,32 @@
+[31m  ERROR[0m - [33m05/Jun/2013 18:57:01[0m Cannot require /home/usuario/data/git_repositories/log-de-tareas/models/group.rb due to a syntax error: /home/usuario/data/git_repositories/log-de-tareas/models/group.rb:17: syntax error, unexpected '(', expecting ';' or '\n'
+  def for_account(account)
+                  ^
+/home/usuario/data/git_repositories/log-de-tareas/models/group.rb:22: syntax error, unexpected keyword_end, expecting $end
+[31m  ERROR[0m - [33m05/Jun/2013 18:57:57[0m Cannot require /home/usuario/data/git_repositories/log-de-tareas/models/group.rb due to a syntax error: /home/usuario/data/git_repositories/log-de-tareas/models/group.rb:17: syntax error, unexpected '(', expecting ';' or '\n'
+  def for_account(account)
+                  ^
+/home/usuario/data/git_repositories/log-de-tareas/models/group.rb:22: syntax error, unexpected keyword_end, expecting $end
+[31m  ERROR[0m - [33m05/Jun/2013 18:59:25[0m Cannot require /home/usuario/data/git_repositories/log-de-tareas/models/group.rb due to a syntax error: /home/usuario/data/git_repositories/log-de-tareas/models/group.rb:17: syntax error, unexpected '(', expecting ';' or '\n'
+  def for_account(account)
+                  ^
+/home/usuario/data/git_repositories/log-de-tareas/models/group.rb:22: syntax error, unexpected keyword_end, expecting $end
+[31m  ERROR[0m - [33m05/Jun/2013 19:10:22[0m Cannot require /home/usuario/data/git_repositories/log-de-tareas/models/group.rb due to a syntax error: /home/usuario/data/git_repositories/log-de-tareas/models/group.rb:17: syntax error, unexpected '(', expecting ';' or '\n'
+  def for_account(account)
+                  ^
+/home/usuario/data/git_repositories/log-de-tareas/models/group.rb:22: syntax error, unexpected keyword_end, expecting $end
+[31m  ERROR[0m - [33m05/Jun/2013 19:27:29[0m Cannot require /home/usuario/data/git_repositories/log-de-tareas/models/group.rb due to a syntax error: /home/usuario/data/git_repositories/log-de-tareas/models/group.rb:17: syntax error, unexpected '(', expecting ';' or '\n'
+  def for_account(account)
+                  ^
+/home/usuario/data/git_repositories/log-de-tareas/models/group.rb:22: syntax error, unexpected keyword_end, expecting $end
+[31m  ERROR[0m - [33m05/Jun/2013 19:30:20[0m Cannot require /home/usuario/data/git_repositories/log-de-tareas/models/group.rb due to a syntax error: /home/usuario/data/git_repositories/log-de-tareas/models/group.rb:17: syntax error, unexpected '(', expecting ';' or '\n'
+  def for_account(account)
+                  ^
+/home/usuario/data/git_repositories/log-de-tareas/models/group.rb:22: syntax error, unexpected keyword_end, expecting $end
+[31m  ERROR[0m - [33m05/Jun/2013 19:31:54[0m Cannot require /home/usuario/data/git_repositories/log-de-tareas/models/group.rb due to a syntax error: /home/usuario/data/git_repositories/log-de-tareas/models/group.rb:17: syntax error, unexpected '(', expecting ';' or '\n'
+  def for_account(account)
+                  ^
+/home/usuario/data/git_repositories/log-de-tareas/models/group.rb:22: syntax error, unexpected keyword_end, expecting $end
+[31m  ERROR[0m - [33m05/Jun/2013 19:38:11[0m Cannot require /home/usuario/data/git_repositories/log-de-tareas/models/group.rb due to a syntax error: /home/usuario/data/git_repositories/log-de-tareas/models/group.rb:17: syntax error, unexpected '(', expecting ';' or '\n'
+  def for_account(account)
+                  ^
+/home/usuario/data/git_repositories/log-de-tareas/models/group.rb:21: syntax error, unexpected keyword_end, expecting $end

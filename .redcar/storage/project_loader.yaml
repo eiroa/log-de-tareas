@@ -1,0 +1,8 @@
+--- 
+open_files: 
+  - config/apps.rb
+  - config/database.rb
+  - app/controllers/group.rb
+  - models/group.rb
+  - models/account.rb
+  - spec/models/account_spec.rb
