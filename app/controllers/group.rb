@@ -18,23 +18,19 @@ LogDeTareas::App.controllers :group do
   # get '/example' do
   #   'Hello world!'
   # end
-
-  get :new , :with => :name do
-      Group.new(:name, current_account)
-      render 'group/list'
+  
+  get :index do
+     render 'group/index'
+  end
+  
+  get :new do      
+      #@new_group = Group.new(:name, current_account)
+      redirect 'group/list'
   end
 
-  get :list do
-      render 'group/list'
-  end
   
   get :create do
-      render 'group/create'
+    render 'group/create'
   end
-  
-  get '/' do
-      render 'group/list'
-  end
-  
 
 end

@@ -80,15 +80,15 @@ module LogDeTareas
         role.protect "/group"
     end
 
-    get '/' do
+    get :index do
       if(current_account)
-        redirect '/group' 
+        redirect :group
       else
-        redirect '/index'
-      end     
+        render 'home/index'
+      end
     end
 
-    get '/login' do
+    get :login do
       render 'home/login'
     end
 
@@ -106,13 +106,6 @@ module LogDeTareas
     end
  
 
-    get '/index' do
-        render '/home/index'
-    end
-
- 		get '/groups/successful_creation' do
-    	"The group #{params[:group[name]]} has been created"
-  	end
 
   end
 end
