@@ -218,11 +218,16 @@ Then /^show me the page$/ do
   save_and_open_page
 end
 
-Given /^I am viewing "([^"]*)"$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then(/^I shoud see "(.*?)"$/) do |arg1|
+    if page.respond_to? :should
+      page.should have_content(arg1)
+    else
+      assert page.has_content?(arg1)
+    end
 end
 
-Then /^I should see "Hello, world!$/ do
+
+Given /^I am viewing "([^"]*)"$/ do |arg1|
   pending # express the regexp above with the code you wish you had
 end
 
@@ -258,13 +263,16 @@ Given(/^there is at least one group$/) do
   pending # express the regexp above with the code you wish you had
 end
 
-Given(/^there is group with name "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Given(/^there is group with name "(.*?)"$/) do |name|
+	account = Account.create_with_name('a_account')
+	Group.new(name,account)
 end
 
 Given(/^there is task with name "(.*?)"$/) do |arg1|
   pending # express the regexp above with the code you wish you had
 end
+
+
 
 
 

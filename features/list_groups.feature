@@ -4,19 +4,25 @@ Feature: List groups
   I want to be able to list the groups
 
   Background:
-    Given there are not task
-    Given there is group with name "Grupo1"
-    Given there is group with name "Grupo2"
+    Given there are not groups
     And I am logged in
 
-	@wip
-  Scenario: Happy path - first item
-    Given I am on "view groups"
+
+  Scenario: I have one group named "Grupo1"
+    Given there is group with name "Grupo1"
+    Given I am on "the index group page"
     Then I should see "Grupo1"
 
-	@wip
-  Scenario: Happy path - second item
-    Given I am on "view groups"
+
+  Scenario: I have two groups with names "Grupo1" and "Grupo2"
+    Given there is group with name "Grupo1"
+    Given there is group with name "Grupo2"
+    Given I am on "the index group page"
+		Then I should see "Grupo1"
     Then I should see "Grupo2"
 
+
+	Scenario: I don't have groups
+    Given I am on "the index group page"
+		Then I shoud see "No tienes grupos creados"
 
