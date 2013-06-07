@@ -82,7 +82,7 @@ module LogDeTareas
 
     get :index do
       if(current_account)
-        redirect :group
+        redirect '/group'
       else
         render 'home/index'
       end

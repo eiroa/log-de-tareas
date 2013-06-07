@@ -23,7 +23,7 @@ LogDeTareas::App.controllers :group do
 		 @list= Group.all
      render 'group/index'
   end
-    
- 
+
+
 
 end
