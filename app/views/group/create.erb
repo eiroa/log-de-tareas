@@ -1,19 +1,13 @@
-
-
 <header class="jumbotron subhead" id="overview">
     <div>
       <div class="well centerlogin">
-	<form method='get' action='/group/new' noValidate='noValidate'>
+	      <form method='get' action='/group_new' noValidate='noValidate'>
 		    <%= csrf_token_field %>
-
-	<label for='name'>Name:</label>
-	<input class="span4" type='text' id='group[name]' name='group_name' placeholder="name"/>
-
+	        <label for='name'>Name:</label>
+	        <input class="span4" type='text' id='group_name' name='group_name' placeholder="name"/>
 	
-	<button type='submit' id="submit">Create</button> 
-
-	</form>
-
+	        <button type='submit' id="submit">Create</button> 
+	      </form>
     </div>
   </div>
 </header>

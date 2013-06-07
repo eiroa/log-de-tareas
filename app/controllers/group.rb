@@ -23,16 +23,7 @@ LogDeTareas::App.controllers :group do
 		 @list= Group.all
      render 'group/index'
   end
-  
-  get :new do      
-      @new_group = Group.new(params['group_name'], current_account)      
-      redirect '/group'
-  end
-  
-  get :create do
-      redirect '/group_create'
-  end
-  
+    
  
 
 end

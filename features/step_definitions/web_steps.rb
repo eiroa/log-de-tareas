@@ -251,13 +251,9 @@ Given(/^I am logged in$/) do
   click_button "submit"
 end
 
-Given(/^event with named "(.*?)" already exists$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
-end
 
 Given(/^there are not task$/) do
-  pending # express the regexp above with the code you wish you had
-  
+  Task.destroy  
 end
 
 Given(/^there is at least one group$/) do

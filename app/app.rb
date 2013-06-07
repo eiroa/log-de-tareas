@@ -108,6 +108,13 @@ module LogDeTareas
     get '/group_create' do
       render 'group/create'
     end
+    
+    get '/group_new' do      
+      @new_group = Group.new(params['group_name'], current_account) 
+		  @list= Group.all
+      render 'group/index'
+    end
+  
 
 
   end

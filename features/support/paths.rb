@@ -15,6 +15,10 @@ module NavigationHelpers
 
 		when /the index group\s?page/
 			'/group'
+    
+    
+    when /the create group\s?page/
+			'/group_create'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
