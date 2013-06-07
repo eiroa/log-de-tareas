@@ -20,6 +20,48 @@ Given /^(?:|I )am on (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
+Given /^I am viewing "([^"]*)"$/ do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+Given /^the note "([^"]*)", "([^"]*)" exists$/ do |arg1, arg2|
+  Note.destroy_all
+  note = Note.new
+  note.key = arg1
+  note.value = arg2
+  note.user = 'user@something.com'
+  note.save
+end
+                              
+Given(/^there are not groups$/) do
+  Group.destroy
+end
+
+Given(/^I am logged in$/) do
+  visit "/login"
+  fill_in("name", :with => "test_account")
+  fill_in("email", :with => "account@test.com")
+  click_button "submit"
+end
+
+
+Given(/^there are not task$/) do
+  Task.destroy  
+end
+
+Given(/^there is at least one group$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+Given(/^there is group with name "(.*?)"$/) do |name|
+  account = Account.find_by_uid('account@test.com')
+	Group.new(name,account)
+end
+
+Given(/^there is task with name "(.*?)"$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
 When /^(?:|I )go to (.+)$/ do |page_name|
   visit path_to(page_name)
 end
@@ -227,47 +269,6 @@ Then(/^I shoud see "(.*?)"$/) do |arg1|
 end
 
 
-Given /^I am viewing "([^"]*)"$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
-end
-
-Given /^the note "([^"]*)", "([^"]*)" exists$/ do |arg1, arg2|
-  Note.destroy_all
-  note = Note.new
-  note.key = arg1
-  note.value = arg2
-  note.user = 'user@something.com'
-  note.save
-end
-                              
-Given(/^there are not groups$/) do
-  Group.destroy
-end
-
-Given(/^I am logged in$/) do
-  visit "/login"
-  fill_in("name", :with => "test_account")
-  fill_in("email", :with => "account@test.com")
-  click_button "submit"
-end
-
-
-Given(/^there are not task$/) do
-  Task.destroy  
-end
-
-Given(/^there is at least one group$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Given(/^there is group with name "(.*?)"$/) do |name|
-  account = Account.find_by_uid('account@test.com')
-	Group.new(name,account)
-end
-
-Given(/^there is task with name "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
-end
 
 
 

@@ -14,26 +14,23 @@ Feature: Create group
     When I press "submit"
     Then I should see "The group Grupo1 has been created"
 
-  @wip
   Scenario: Name is blank
     Given I am on "the create group page"
     And I fill in "group_name" with " "
     When I press "submit"
-    Then I should see "Error"
+    Then I should see "Error -> The group name don't should be empty or content symbols"
 
-  @wip
   Scenario: Name is a symbol
-    Given I am on "create group page"
+    Given I am on "the create group page"
     And I fill in "group_name" with "&"
     When I press "submit"
-    Then I should see "Error"
+    Then I should see "Error -> The group name don't should be empty or content symbols"
 
-  @wip
-  Scenario: Group id already exists
-    Given I am on "create group page"
-    And event with named "Grupo1" already exists
-    And I fill in "event[name]" with "Grupo1"
+  Scenario: Group name already exists
+    Given I am on "the create group page"
+    Given there is group with name "Grupo1"
+    And I fill in "group_name" with "Grupo1"
     When I press "submit"
-    Then I should see "Grupo1 already exists"
+    Then I should see "Error -> Grupo1 already exist"
 
 
