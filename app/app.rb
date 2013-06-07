@@ -109,6 +109,12 @@ module LogDeTareas
       render 'group/create'
     end
     
+    get '/delete_all' do
+      Group.destroy
+      Account.destroy
+      redirect '/group'
+    end
+    
     get '/group_new' do
       @errors_group = Group.errors(params['group_name'], current_account)
       if(@errors_group.empty?)
