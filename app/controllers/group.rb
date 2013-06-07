@@ -24,10 +24,6 @@ LogDeTareas::App.controllers :group do
      render 'group/index'
   end
   
-  get '/' do
-		 @list= Group.all
-     render 'group/index'
-  end
 
 
 
