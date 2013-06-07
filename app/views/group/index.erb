@@ -1,6 +1,11 @@
 <span class="span6">
 
   
+  <% if @new_group %>
+  <p>The group <%=@new_group.name%> has been created</p>
+  <% end %>
+  
+  
 	<% if @list.empty? %>
 		 <p>No tienes grupos creados</p>
 		<% else %>
@@ -18,6 +23,3 @@
   value="Crear nuevo grupo" class="btn btn-inverse btn-large form_exp_submit">
   </span>
 	</p>
-
-  
-  <p> <%=@message%> </p>

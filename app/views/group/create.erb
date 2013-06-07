@@ -1,6 +1,17 @@
 <header class="jumbotron subhead" id="overview">
     <div>
       <div class="well centerlogin">
+        
+        <% if @errors_group && !@errors_group.empty? %>
+        <h5>Argument error:</h5>
+			     <ul>
+			       <% @errors_group.each do |error| %>
+			       <li><%=error.description %></li>
+			       <% end %>
+           </ul>
+		    <% end %>
+    
+    
 	      <form method='get' action='/group_new' noValidate='noValidate'>
 		    <%= csrf_token_field %>
 	        <label for='name'>Name:</label>

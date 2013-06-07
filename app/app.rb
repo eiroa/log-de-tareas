@@ -109,21 +109,16 @@ module LogDeTareas
       render 'group/create'
     end
     
-    get '/group_new' do    
-			if (params['group_name'] == "") or ((/[^A-Za-z0-9]/.match(params['group_name'])).to_s != '')
-				@message = "Error -> The group name don't should be empty or content symbols"
-			else
-				if Group.find_by_name(params['group_name']) == nil  
-					new_group = Group.new(params['group_name'], current_account) 
-					@message= "The group #{new_group.name} has been created" 
-				else
-     			@message = "Error -> #{params['group_name']} already exist"
-				end
-			end
-			@list= Group.all
-      render 'group/index'
-    end
-  
+    get '/group_new' do
+      @errors_group = Group.errors(params['group_name'], current_account)
+      if(@errors_group.empty?)
+        @new_group = Group.new(params['group_name'], current_account)
+		    @list= Group.all
+        render 'group/index'
+      else
+        render 'group/create'
+      end
+    end  
 
 
   end

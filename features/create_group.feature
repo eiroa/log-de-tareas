@@ -18,19 +18,19 @@ Feature: Create group
     Given I am on "the create group page"
     And I fill in "group_name" with " "
     When I press "submit"
-    Then I should see "Error -> The group name don't should be empty or content symbols"
+    Then I should see "The group name don't should be empty or content symbols"
 
   Scenario: Name is a symbol
     Given I am on "the create group page"
     And I fill in "group_name" with "&"
     When I press "submit"
-    Then I should see "Error -> The group name don't should be empty or content symbols"
+    Then I should see "The group name don't should be empty or content symbols"
 
   Scenario: Group name already exists
     Given I am on "the create group page"
     Given there is group with name "Grupo1"
     And I fill in "group_name" with "Grupo1"
     When I press "submit"
-    Then I should see "Error -> Grupo1 already exist"
+    Then I should see "The group Grupo1 already exist"
 
 
