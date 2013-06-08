@@ -1,0 +1,24 @@
+<span class="span6">
+
+  
+  <% if @new_task %>
+  <p>The task <%=@new_task.name%> has been created</p>
+  <% end %>
+  
+  
+	<% if @list && !@list.empty? %>
+			<h1>Estas son las tareas del grupo seleccionado</h1>
+			<ul>
+			  <% @list.each do |task| %>
+			  <li><%=task.name %></li>
+			  <% end %>
+      </ul>
+		<% else %>       
+		 <p>There is no task for the select group</p>
+		<% end %>
+
+  <p>     
+  <input type="button" id="create_task" onClick="document.location = 'task_create?group_id=<%=@group.id%>'"
+  value="Create new task" class="btn btn-inverse btn-large form_exp_submit">
+  </span>
+	</p>

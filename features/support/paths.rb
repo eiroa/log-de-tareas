@@ -19,6 +19,10 @@ module NavigationHelpers
     
     when /the create group\s?page/
 			'/group_create'
+      
+
+    when /the create task\s?page/
+			'/task_create'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

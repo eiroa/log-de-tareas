@@ -6,20 +6,21 @@
   <% end %>
   
   
-	<% if @list.empty? %>
-		 <p>No tienes grupos creados</p>
-		<% else %>
-
-			<h1>Estos son tus grupos</h1>
+	<% if (@list != nil) && !(@list.empty?) %>
+  <h1>Estos son tus grupos</h1>
 			<ul>
 			  <% @list.each do |group| %>
-			  <li><%=group.name %></li>
+			  <li><%=group.name %>
+          <input type="button" id="<%=group.name%>" onClick="document.location = 'task?group_id=<%=group.id %>'" value="ver" />
+        </li>
 			  <% end %>
       </ul>
-		<% end %>
+  <% else %>
+        <p>No tienes grupos creados</p>  
+  <% end %>
 
   <p>     
   <input type="button" onClick="document.location = 'group_create'"
-  value="Crear nuevo grupo" class="btn btn-inverse btn-large form_exp_submit">
+  value="Crear nuevo grupo" class="btn btn-inverse btn-large form_exp_submit"/>
   </span>
 	</p>

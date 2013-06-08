@@ -1,0 +1,30 @@
+<header class="jumbotron subhead" id="overview">
+    <div>
+      <div class="well centerlogin">
+        
+        <% if @errors_task && !@errors_task.empty? %>
+        <h5>Argument error:</h5>
+			     <ul>
+			       <% @errors_task.each do |error| %>
+			       <li><%=error.description %></li>
+			       <% end %>
+           </ul>
+		    <% end %>
+    
+    
+	      <form method='get' action='/task_new' noValidate='noValidate'>
+		    <%= csrf_token_field %>
+        
+	        <label for='name'>Name:</label>
+	        <input class="span4" type='text' id='task_name' name='task_name' placeholder="name"/>
+          
+          <label for='name'>Description:</label>
+	        <textarea class="span4" id='task_description' name='task_description' placeholder="task description"></textarea>
+	
+          <input type="hidden" name="group_id" value="<%=@group.id%>"/>
+	        <button type='submit' id="submit">Create</button> 
+	      </form>
+    </div>
+  </div>
+</header>
+

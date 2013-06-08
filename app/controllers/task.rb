@@ -1,4 +1,4 @@
-LogDeTareas::App.controllers :group do
+LogDeTareas::App.controllers :task do
   
   # get :index, :map => '/foo/bar' do
   #   session[:foo] = 'bar'
@@ -18,13 +18,10 @@ LogDeTareas::App.controllers :group do
   # get '/example' do
   #   'Hello world!'
   # end
-  
   get :index do
-		 @list= Group.find_all_by_account(current_account)
-     render 'group/index'
+      @group = Group.find_by_id(params['group_id'])
+      @list= TaskTemplate.find_all_by_group(@group)
+      render 'task/index'
   end
-  
-
-
 
 end

@@ -4,21 +4,29 @@ Feature: List task
   I want to be able to list a tasks of the group
 
   Background:
-    Given there are not task
-    Given there is group with name "Grupo1"
-    Given there is task with name "Tarea1"
-    Given there is task with name "Tarea2"
     And I am logged in
+    Given there are not task
+    Given there are not groups
+    Given there is group with name "Grupo1"
+    
 
-	@wip
   Scenario: Happy path - first task
-    Given I am on "view groups"
-    When I press "groups[grupo1][view]"
+    Given there is task with name "Tarea1" for the group "Grupo1"
+    Given there is task with name "Tarea2" for the group "Grupo1"
+    Given I am on "the index group page"
+    When I press "Grupo1"
     Then I should see "Tarea1"
 
-	@wip
+
   Scenario: Happy path - second task
-    Given I am on "view groups"
-    When I press "groups[grupo1][view]"
+    Given there is task with name "Tarea1" for the group "Grupo1"
+    Given there is task with name "Tarea2" for the group "Grupo1"
+    Given I am on "the index group page"
+    When I press "Grupo1"
     Then I should see "Tarea2"
     
+
+  Scenario: Happy path - second task    
+    Given I am on "the index group page"
+    When I press "Grupo1"
+    Then I should see "There is no task for the select group"

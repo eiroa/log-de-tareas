@@ -104,19 +104,44 @@ module LogDeTareas
         set_current_account(account)
         redirect "/group"
     end
+    
+    ##Groups_controller
  
     get '/group_create' do
       render 'group/create'
     end
-    
+
     get '/group_new' do
       @errors_group = Group.errors(params['group_name'], current_account)
       if(@errors_group.empty?)
         @new_group = Group.new(params['group_name'], current_account)
-		    @list= Group.all
+		    @list= Group.find_all_by_account(current_account)
         render 'group/index'
       else
         render 'group/create'
+      end
+    end  
+    
+    ##Groups_controller
+ 
+    get '/task_create' do
+      @group = Group.find_by_id(params['group_id'])
+      render 'task/create'
+    end
+
+    get '/task_new' do
+      @group = Group.find_by_id(params['group_id'])
+      @task_name = params['task_name']
+      @task_description = params['task_description']
+      
+      
+      @errors_task = TaskTemplate.errors(@task_name, @task_description, @group)
+      if(@errors_task.empty?)
+        @new_task = TaskTemplate.new(@task_name, @task_description, @group)
+		    @list= TaskTemplate.find_all_by_group(@group)
+        render 'task/index'
+      else        
+        render 'task/create'
       end
     end  
 

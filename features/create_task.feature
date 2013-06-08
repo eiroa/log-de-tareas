@@ -5,48 +5,59 @@ Feature: Create task
 
   Background:
     Given there are not task
-    Given there is at least one group
+    And there are not groups
     And I am logged in
+    And there is group with name "Grupo1"
 
-	@wip
+
   Scenario: Happy path
-    Given I am on "create task page"
-    And I fill in "task[name]" with "Tarea1"
-    And I fill in "task[description]" with "Descripcion de la tarea"
-    When I press "saveButton"
-    Then I should see "The task Tarea1 has been created"
+    Given I am on "the index group page"
+    And I press "Grupo1"
+    And I press "create_task"    
+    And I fill in "task_name" with "test1"
+    And I fill in "task_description" with "test_description"
+    When I press "submit"
+    Then I should see "The task test1 has been created"
 
-	@wip
+
   Scenario: Name is blank
-    Given I am on "create task page"
-    And I fill in "task[name]" with " "
-    And I fill in "task[description]" with "Descripcion de la tarea"
-    When I press "saveButton"
-    Then I should see "Error"
+    Given I am on "the index group page"
+    And I press "Grupo1"
+    And I press "create_task"    
+    And I fill in "task_name" with " "
+    And I fill in "task_description" with "test_description"
+    When I press "submit"
+    Then I should see "The task name don't should be empty or content symbols"
 
-	@wip
+
   Scenario: Description is blank
-    Given I am on "create task page"
-    And I fill in "task[name]" with "Tarea1"
-    And I fill in "task[description]" with " "
-    When I press "saveButton"
-    Then I should see "Error"
+   Given I am on "the index group page"
+    And I press "Grupo1"
+    And I press "create_task"    
+    And I fill in "task_name" with "test2"
+    And I fill in "task_description" with " "
+    When I press "submit"
+    Then I should see "The task description don't should be empty or content symbols"
 
-	@wip
+
   Scenario: Name is a symbol
-    Given I am on "create task page"
-    And I fill in "task[name]" with "&"
-    And I fill in "task[description]" with "Descripcion de la tarea"
-    When I press "saveButton"
-    Then I should see "Error"
+    Given I am on "the index group page"
+    And I press "Grupo1"
+    And I press "create_task"    
+    And I fill in "task_name" with " "
+    And I fill in "task_description" with "test_description"
+    When I press "submit"
+    Then I should see "The task name don't should be empty or content symbols"
 
-	@wip
+
   Scenario: Task id already exists
-    Given I am on "create task page"
-    And event with named "Tarea1" already exists
-    And I fill in "task[name]" with "Tarea1"
-    And I fill in "task[description]" with "Descripcion de la tarea"
-    When I press "saveButton"
-    Then I should see "Tarea1 already exists"
+    Given there is task with name "Test1" for the group "Grupo1"
+    And I am on "the index group page"
+    And I press "Grupo1"
+    And I press "create_task"    
+    And I fill in "task_name" with "Test1"
+    And I fill in "task_description" with "test_description"
+    When I press "submit"
+    Then I should see "The task Test1 already exist"
 
 

@@ -49,18 +49,19 @@ Given(/^there are not task$/) do
   Task.destroy  
 end
 
-Given(/^there is at least one group$/) do
-  pending # express the regexp above with the code you wish you had
-end
+
 
 Given(/^there is group with name "(.*?)"$/) do |name|
   account = Account.find_by_uid('account@test.com')
 	Group.new(name,account)
 end
 
-Given(/^there is task with name "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+
+Given(/^there is task with name "(.*?)" for the group "(.*?)"$/) do |task_name, group_name|
+  group = Group.find_by_name(group_name)
+	TaskTemplate.new(task_name, 'a_fake_description', group)
 end
+
 
 When /^(?:|I )go to (.+)$/ do |page_name|
   visit path_to(page_name)
