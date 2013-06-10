@@ -1,8 +1,18 @@
 language: ruby
+
+install:
+  - gem install selenium-client
+	- pip install selenium nose --use-mirrors
+
+
 before_script: 
   - mysql -e 'create database log_de_tareas_test2;'
   - "sh -e /etc/init.d/xvfb start"
 	- curl https://gist.github.com/santiycr/5139565/raw/sauce_connect_setup.sh | bash
+  - curl https://gist.github.com/santiycr/5139581/raw/python_appengine_setup.py | python
 script: PADRINO_ENV=travis padrino rake
 
+script:
+  - python cssify.py -t
+  - nosetests --processes=5 --process-timeout=600 -v tests
 
