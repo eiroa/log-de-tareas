@@ -2,6 +2,7 @@ language: ruby
 before_script: 
   - mysql -e 'create database log_de_tareas_test2;'
   - "sh -e /etc/init.d/xvfb start"
+	- curl https://gist.github.com/santiycr/5139565/raw/sauce_connect_setup.sh | bash
 script: PADRINO_ENV=travis padrino rake
 
 
