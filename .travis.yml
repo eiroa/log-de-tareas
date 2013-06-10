@@ -1,9 +1,4 @@
 language: ruby
-
-install:
-  - gem install selenium-client
-
-
 before_script: 
   - mysql -e 'create database log_de_tareas_test2;'
   - "sh -e /etc/init.d/xvfb start"
