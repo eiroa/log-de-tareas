@@ -3,7 +3,7 @@ migration 2, :create_task_templates do
     create_table :task_templates do
       column :id, Integer, :serial => true
       column :name, String, :length => 255
-      column :description, Integer
+      column :description, String
       column :group_id, Integer
     end
   end
