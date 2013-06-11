@@ -27,10 +27,27 @@ body{
 }
 
 .info_frame{
+    padding: 0;
     margin-left: 0;
     height: 40px;
     background-color: #222;
 }
+
+.info_frame li a{
+    font-weight: bold;
+    font-family: "Arial,sans-serif",Helvetica,Arial,Helvetica Neue;
+    color: #aaa;
+    text-decoration: none;
+}
+
+.info_frame li{
+    margin: 10px 30px 0 0;
+    padding: 0;
+    float: right;
+    list-style: none;
+}
+
+
 
 .header p{
     font-weight: bold;

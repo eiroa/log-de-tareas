@@ -21,21 +21,21 @@
   <div class="body_frame">     
 
       
-        <div class="info_frame">
-
+        <div class="navbar info_frame">
+        <ul>
           <% 
           if current_account 
                %>
+               <li><a href="/logout" title="Profile">Cerrar sesi&oacute;n</a></li>
+               <li><a href="/" title="Profile"><%= current_account.friendly_name %></a></li>
                <li><a href="/" title="Inicio">Inicio</a></li>
-               <li><a rel="tooltip" href="/" title="Profile"><%= current_account.friendly_name %></a></li>
-               <li><a rel="tooltip" href="/logout" title="Profile">Cerrar sesi&oacute;n</a></li>
                <% 
           end
           %>
-
+        </ul>
 
         </div><!--info_frame-->
-	<div class="header">
+	  <div class="header">
           <div class="logo_frame">
              <img id="gear" src="image/icon/logo/gear_0.png" class="logo" />
           </div><!--logo_frame-->   
