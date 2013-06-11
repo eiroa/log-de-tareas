@@ -14,14 +14,14 @@ class TaskTemplate
     self.save
     self
   end  
-  
+
   def self.errors(nameP, descriptionP, groupP)
     array = []
     self.check_name(array, nameP, groupP)
     self.check_description(array, descriptionP)
     array
   end
-  
+
   def self.check_name(array, nameP, groupP)
     if !/[[:alnum:]]/.match(nameP)
       array.push(ArgError.blank_string('task name'))

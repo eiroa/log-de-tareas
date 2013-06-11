@@ -6,30 +6,25 @@ PadrinoTasks.use(:database)
 PadrinoTasks.use(:datamapper)
 PadrinoTasks.init
 
-
 puts "PADRINO_ENV: #{PADRINO_ENV}"
 if ['development', 'test', 'travis'].include?(PADRINO_ENV)
-require 'cucumber/rake/task'
+	require 'cucumber/rake/task'
 
+	task :travis do
+  ["rake spec", "rake cucumber"].each do |cmd|
+    puts "Starting to run #{cmd}..."
+    system("export DISPLAY=:99.0 && bundle exec #{cmd}")
+    raise "#{cmd} failed!" unless $?.exitstatus == 0
+    end
+  end
 
-task :travis do
-          ["rake spec", "rake cucumber"].each do |cmd|
-            puts "Starting to run #{cmd}..."
-            system("export DISPLAY=:99.0 && bundle exec #{cmd}")
-            #raise "#{cmd} failed!" unless $?.exitstatus == 0
-          end
-        end
+	Cucumber::Rake::Task.new(:cucumber) do |task|
+  	Rake::Task['db:migrate'].invoke
+  	task.cucumber_opts = ["features"]
+	end
 
-
-Cucumber::Rake::Task.new(:cucumber) do |task|
-   Rake::Task['db:migrate'].invoke
-   task.cucumber_opts = ["features"]
+	task :default => [:travis]
 end
-
-task :default => [:travis]
-end
-
-
 
 
 
