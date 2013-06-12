@@ -1,6 +1,6 @@
 <span class="span6">
 
-  <h4>Grupo: <%= @group.name %></h4>
+  
   
   
   <% if @new_task %>
@@ -9,18 +9,20 @@
   
   
 	<% if @list && !@list.empty? %>
-  <h4>Estas son las tareas del grupo seleccionado</h4>
+  <h4>Estas son las tareas del grupo <span class="resalt"><%= @group.name %></span></h4>
 			<ul>
 			  <% @list.each do |task| %>
 			  <li><%=task.name %></li>
 			  <% end %>
       </ul>
 		<% else %>       
-		 <p>No hay tareas para el grupo seleccionado</p>
+		 <p>No hay tareas para el grupo <span class="resalt"><%= @group.name %></span></p>
 		<% end %>
 
   <p>     
   <input type="button" id="create_task" onClick="document.location = 'task_create?group_id=<%=@group.id%>'"
-  value="Create new task" class="btn btn-inverse btn-large form_exp_submit">
+  value="Crear tarea" class="btn btn-inverse form_exp_submit">
+  <input type="button" id="back" onClick="document.location = 'group'"
+  value="Volver" class="btn btn-inverse form_exp_submit">
   </span>
 	</p>

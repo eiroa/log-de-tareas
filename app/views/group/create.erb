@@ -3,12 +3,16 @@
       <div class="well centerlogin">
         
         <% if @errors_group && !@errors_group.empty? %>
-        <h5>Argument error:</h5>
+        <div class="error_frame">
+        <h5 class="error" >Error en los argumentos:</h5>
 			     <ul>
 			       <% @errors_group.each do |error| %>
 			       <li><%=error.description %></li>
 			       <% end %>
            </ul>
+        </div>
+        <% else %>
+        <h5>Nuevo grupo</h5>
 		    <% end %>
     
     
@@ -17,7 +21,8 @@
 	        <label for='name'>Name:</label>
 	        <input class="span4" type='text' id='group_name' name='group_name' placeholder="name"/>
 	
-	        <button type='submit' id="submit">Create</button> 
+	        <button type='submit' id="submit">Crear</button>
+          <button onClick="document.location = 'group'" type='button' id="cancelar">Cancelar</button> 
 	      </form>
     </div>
   </div>
