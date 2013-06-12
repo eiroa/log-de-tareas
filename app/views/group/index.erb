@@ -2,12 +2,12 @@
 
   
   <% if @new_group %>
-  <p>The group <%=@new_group.name%> has been created</p>
+  <p>El grupo <%=@new_group.name%> ha sido creado exitosamente</p>
   <% end %>
   
   
 	<% if (@list != nil) && !(@list.empty?) %>
-  <h1>Estos son tus grupos</h1>
+  <h4>Estos son tus grupos</h4>
 			<ul>
 			  <% @list.each do |group| %>
 			  <li><%=group.name %>

@@ -29,4 +29,4 @@ Feature: List task
   Scenario: Happy path - second task    
     Given I am on "the index group page"
     When I press "Grupo1"
-    Then I should see "There is no task for the select group"
+    Then I should see "No hay tareas para el grupo seleccionado"

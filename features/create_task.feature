@@ -17,7 +17,7 @@ Feature: Create task
     And I fill in "task_name" with "test1"
     And I fill in "task_description" with "test_description"
     When I press "submit"
-    Then I should see "The task test1 has been created"
+    Then I should see "La tarea test1 ha sido creada correctamente"
 
 
   Scenario: Name is blank
@@ -27,7 +27,7 @@ Feature: Create task
     And I fill in "task_name" with " "
     And I fill in "task_description" with "test_description"
     When I press "submit"
-    Then I should see "The task name don't should be empty or content symbols"
+    Then I should see "El nombre de la tarea no deberia ser vacio o contener simbolos"
 
 
   Scenario: Description is blank
@@ -37,7 +37,7 @@ Feature: Create task
     And I fill in "task_name" with "test2"
     And I fill in "task_description" with " "
     When I press "submit"
-    Then I should see "The task description don't should be empty or content symbols"
+    Then I should see "La descripcion de la tarea no deberia ser vacio o contener simbolos"
 
 
   Scenario: Name is a symbol
@@ -47,7 +47,7 @@ Feature: Create task
     And I fill in "task_name" with " "
     And I fill in "task_description" with "test_description"
     When I press "submit"
-    Then I should see "The task name don't should be empty or content symbols"
+    Then I should see "El nombre de la tarea no deberia ser vacio o contener simbolos"
 
 
   Scenario: Task id already exists
@@ -58,6 +58,6 @@ Feature: Create task
     And I fill in "task_name" with "Test1"
     And I fill in "task_description" with "test_description"
     When I press "submit"
-    Then I should see "The task Test1 already exist"
+    Then I should see "La tarea Test1 ya existe"
 
 

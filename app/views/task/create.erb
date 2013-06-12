@@ -1,14 +1,19 @@
 <header class="jumbotron subhead" id="overview">
     <div>
+      
+      
       <div class="well centerlogin">
+        <h4>Grupo: <%= @group.name %></h4>
         
         <% if @errors_task && !@errors_task.empty? %>
-        <h5>Argument error:</h5>
+        <div class="error_frame">
+        <h5 class="error" >Error en los argumentos:</h5>
 			     <ul>
 			       <% @errors_task.each do |error| %>
 			       <li><%=error.description %></li>
 			       <% end %>
            </ul>
+        </div>
 		    <% end %>
     
     

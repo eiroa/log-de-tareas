@@ -21,16 +21,16 @@ class Group
   end
   
   def self.check_name(array, nameP)
-    if !/[[:alnum:]]/.match(nameP)
-      array.push(ArgError.blank_string('group name'))
+    if !FormatTester.is_alp_num(nameP)
+      array.push(ArgError.blank_string('El nombre del grupo'))
     elsif Group.find_by_name(nameP) != nil 
-      array.push(ArgError.new('group exist', "The group #{nameP} already exist"))
+      array.push(ArgError.new('group exist', "El grupo #{nameP} ya existe"))
     end
   end
   
   def self.check_account(array, accountP)
     if accountP == nil || !accountP.is_a?(Account)
-      array.push(ArgError.new('account error', 'the account should be a real account'))
+      array.push(ArgError.new('account error', 'La cuenta deberia ser una cuenta real'))
     end
   end
   

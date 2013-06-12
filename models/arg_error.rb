@@ -12,9 +12,9 @@ class ArgError
     self.description = descriptionP
     self
   end
-  
+
   def self.blank_string(param_name)
-    error = ArgError.new('blank_string', "The #{param_name} don't should be empty or content symbols")
+    error = ArgError.new('blank_string', "#{param_name} no deberia ser vacio o contener simbolos")
     error.id = 1
     error
   end

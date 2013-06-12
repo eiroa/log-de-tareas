@@ -36,8 +36,12 @@ body{
 .info_frame li a{
     font-weight: bold;
     font-family: "Arial,sans-serif",Helvetica,Arial,Helvetica Neue;
-    color: #aaa;
+    color: #AAA;
     text-decoration: none;
+}
+
+.info_frame li a:hover{
+    color: #FFF;
 }
 
 .info_frame li{
@@ -69,7 +73,15 @@ body{
     margin: 0 auto;
 }
 
+.error_frame {
+  margin-top: 40px;  
+  margin-bottom: 30px;  
+}
 
+
+.error {
+  color: red;  
+}
 
 
 

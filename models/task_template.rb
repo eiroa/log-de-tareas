@@ -23,16 +23,16 @@ class TaskTemplate
   end
 
   def self.check_name(array, nameP, groupP)
-    if !/[[:alnum:]]/.match(nameP)
-      array.push(ArgError.blank_string('task name'))
-    elsif TaskTemplate.find_by_name_and_group(nameP, groupP) != nil 
-      array.push(ArgError.new('task exist', "The task #{nameP} already exist"))
+    if !FormatTester.is_alp_num(nameP)
+      array.push(ArgError.blank_string('El nombre de la tarea'))
+    elsif TaskTemplate.find_by_name_and_group(nameP, groupP) != nil
+      array.push(ArgError.new('task exist', "La tarea #{nameP} ya existe"))
     end
   end
   
   def self.check_description(array, descriptionP)
-    if !/[[:alnum:]]/.match(descriptionP)
-      array.push(ArgError.blank_string('task description'))
+    if !FormatTester.is_alp_num(descriptionP)
+      array.push(ArgError.blank_string('La descripcion de la tarea'))
     end
   end
 

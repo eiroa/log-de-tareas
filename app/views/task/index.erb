@@ -1,20 +1,22 @@
 <span class="span6">
 
+  <h4>Grupo: <%= @group.name %></h4>
+  
   
   <% if @new_task %>
-  <p>The task <%=@new_task.name%> has been created</p>
+  <p>La tarea <%=@new_task.name%> ha sido creada correctamente</p>
   <% end %>
   
   
 	<% if @list && !@list.empty? %>
-			<h1>Estas son las tareas del grupo seleccionado</h1>
+  <h4>Estas son las tareas del grupo seleccionado</h4>
 			<ul>
 			  <% @list.each do |task| %>
 			  <li><%=task.name %></li>
 			  <% end %>
       </ul>
 		<% else %>       
-		 <p>There is no task for the select group</p>
+		 <p>No hay tareas para el grupo seleccionado</p>
 		<% end %>
 
   <p>     
