@@ -111,15 +111,17 @@ module LogDeTareas
       render 'group/create'
     end
 
-    get '/group_new' do
-      @errors_group = Group.errors(params['group_name'], current_account)
-      if(@errors_group.empty?)
+    get '/group_new' do     
+      
+      begin
         @new_group = Group.create(params['group_name'], current_account)
-		    @list= Group.find_all_by_account(current_account)
-        render 'group/index'
-      else
+        @list= Group.find_all_by_account(current_account)
+        render 'group/index'    
+      rescue ErrorsException => e
+        @errors_group = e.errors
         render 'group/create'
-      end
+      end  
+            
     end  
     
     ##Groups_controller
@@ -135,14 +137,17 @@ module LogDeTareas
       @task_description = params['task_description']
       
       
-      @errors_task = TaskTemplate.errors(@task_name, @task_description, @group)
-      if(@errors_task.empty?)
+      begin
         @new_task = TaskTemplate.create(@task_name, @task_description, @group)
-		    @list= TaskTemplate.find_all_by_group(@group)
-        render 'task/index'
-      else        
+        @list= TaskTemplate.find_all_by_group(@group)
+        render 'task/index'    
+      rescue ErrorsException => e
+        @errors_task = e.errors
         render 'task/create'
-      end
+      end 
+      
+      
+     
     end  
 
 
