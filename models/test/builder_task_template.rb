@@ -1,26 +1,24 @@
 class BuilderTaskTemplate
-  include DataMapper::Resource
 
   # property <name>, <type>
-  property :id, Serial
-  property :name, String
-  property :description, String  
-  belongs_to :group
+  @name
+  @description
+  @group
   
   
   def initialize()
-    self.name = 'a_builder_name'
-    self.description = 'a_builder_description'
-    self.group = BuilderGroup.new().build()
+    @name = 'a_builder_name'
+    @description = 'a_builder_description'
+    @group = BuilderGroup.new().build()
     self
   end
   
   def build()
-    TaskTemplate.new(self.name, self.description, self.group)
+    TaskTemplate.new(@name, @description, @group)
   end
   
   def with_description(descriptionP)
-    self.description = descriptionP
+    @description = descriptionP
     self
   end
   
