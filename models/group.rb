@@ -6,11 +6,12 @@ class Group
   property :name, String
   belongs_to :account
 
-  def initialize(nameP, accountP)
-    self.name = nameP
-    self.account = accountP
-    self.save
-    self
+  def self.create(nameP, accountP)
+    instance = self.new()
+    instance.name = nameP
+    instance.account = accountP
+    instance.save
+    instance
   end
   
   def self.errors(nameP, accountP)

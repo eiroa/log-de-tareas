@@ -14,7 +14,7 @@ class BuilderTaskTemplate
   end
   
   def build()
-    TaskTemplate.new(@name, @description, @group)
+    TaskTemplate.create(@name, @description, @group)
   end
   
   def with_description(descriptionP)

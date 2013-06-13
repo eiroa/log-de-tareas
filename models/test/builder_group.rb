@@ -10,7 +10,7 @@ class BuilderGroup
   end
   
   def build()
-    Group.new(@name, @account)
+    Group.create(@name, @account)
   end
   
   def with_name(nameP)

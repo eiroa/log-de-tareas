@@ -114,7 +114,7 @@ module LogDeTareas
     get '/group_new' do
       @errors_group = Group.errors(params['group_name'], current_account)
       if(@errors_group.empty?)
-        @new_group = Group.new(params['group_name'], current_account)
+        @new_group = Group.create(params['group_name'], current_account)
 		    @list= Group.find_all_by_account(current_account)
         render 'group/index'
       else
@@ -137,7 +137,7 @@ module LogDeTareas
       
       @errors_task = TaskTemplate.errors(@task_name, @task_description, @group)
       if(@errors_task.empty?)
-        @new_task = TaskTemplate.new(@task_name, @task_description, @group)
+        @new_task = TaskTemplate.create(@task_name, @task_description, @group)
 		    @list= TaskTemplate.find_all_by_group(@group)
         render 'task/index'
       else        

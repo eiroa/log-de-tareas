@@ -7,12 +7,13 @@ class TaskTemplate
   property :description, String
   belongs_to :group
 
-  def initialize(nameP, descriptionP, groupP)
-    self.name = nameP
-    self.description = descriptionP
-    self.group = groupP
-    self.save
-    self
+  def self.create(nameP, descriptionP, groupP)
+    instance = self.new()
+    instance.name = nameP
+    instance.description = descriptionP
+    instance.group = groupP
+    instance.save
+    instance
   end  
 
   def self.errors(nameP, descriptionP, groupP)

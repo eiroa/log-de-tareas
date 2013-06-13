@@ -53,13 +53,13 @@ end
 
 Given(/^there is group with name "(.*?)"$/) do |name|
   account = Account.find_by_uid('account@test.com')
-	Group.new(name,account)
+	Group.create(name,account)
 end
 
 
 Given(/^there is task with name "(.*?)" for the group "(.*?)"$/) do |task_name, group_name|
   group = Group.find_by_name(group_name)
-	TaskTemplate.new(task_name, 'a_fake_description', group)
+	TaskTemplate.create(task_name, 'a_fake_description', group)
 end
 
 

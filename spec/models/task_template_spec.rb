@@ -6,7 +6,7 @@ describe TaskTemplate do
   
     it 'should assaign group to the created task ' do
       group = BuilderGroup.new().with_name('un_grupo').build()
-      task1 = TaskTemplate.new('name', 'description', group)
+      task1 = TaskTemplate.create('name', 'description', group)
       task1.group.should eq group
     end
     

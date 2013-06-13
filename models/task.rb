@@ -8,13 +8,14 @@ class Task
   belongs_to :task_template
   belongs_to :account
   
-  def initialize(task_templateP, accountP)
-    self.estimatedTime = 0
-    self.elapsedTime = 0
-    self.task_template = task_templateP
-    self.account = accountP
-    self.save
-    self
+  def self.create(task_templateP, accountP)
+    instance = self.new()
+    instance.estimatedTime = 0
+    instance.elapsedTime = 0
+    instance.task_template = task_templateP
+    instance.account = accountP
+    instance.save
+    instance
   end  
   
   

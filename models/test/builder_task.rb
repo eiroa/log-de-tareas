@@ -13,7 +13,7 @@ class BuilderTask
   end
   
   def build()
-    Task.new(@task_template, @account)
+    Task.create(@task_template, @account)
   end
   
   def whit_task_template(task_templateP)
