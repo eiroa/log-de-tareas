@@ -8,13 +8,21 @@ class TaskTemplate
   belongs_to :group
 
   def self.create(nameP, descriptionP, groupP)
+    self.check_params(nameP, descriptionP, groupP)
     instance = self.new()
     instance.name = nameP
     instance.description = descriptionP
     instance.group = groupP
     instance.save
     instance
-  end  
+  end
+
+  def self.check_params(nameP, descriptionP, groupP)
+    errors = self.errors(nameP, descriptionP, groupP)
+    if(!errors.empty?)
+      raise ErrorsException.with_errors(errors)
+    end
+  end
 
   def self.errors(nameP, descriptionP, groupP)
     array = []

@@ -7,11 +7,19 @@ class Group
   belongs_to :account
 
   def self.create(nameP, accountP)
+    self.check_params(nameP, accountP)
     instance = self.new()
     instance.name = nameP
     instance.account = accountP
     instance.save
     instance
+  end
+  
+  def self.check_params(nameP, accountP)
+    errors = self.errors(nameP, accountP)
+    if(!errors.empty?)
+      raise ErrorsException.with_errors(errors)
+    end
   end
   
   def self.errors(nameP, accountP)
