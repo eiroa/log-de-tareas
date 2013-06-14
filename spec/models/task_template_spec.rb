@@ -16,7 +16,7 @@ describe TaskTemplate do
       group = BuilderGroup.new().with_name('un_grupo').build()
       begin
         TaskTemplate.create('a_name', '', group)
-        fail        
+        fail
       rescue ErrorsException => e
         e.errors.should have(1).items
       end
@@ -27,7 +27,7 @@ describe TaskTemplate do
       group = BuilderGroup.new().with_name('un_grupo').build()
       begin
         TaskTemplate.create('', 'description', group)
-        fail        
+        fail
       rescue ErrorsException => e
         e.errors.should have(1).items
       end
