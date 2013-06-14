@@ -31,7 +31,7 @@ describe Group do
       end      
     end
     
-    it 'should raise a ErrorException with n elems when params are incorrect' do
+    it 'should raise a ErrorException when params are incorrect' do
       array = 'error array'
       Group.should_receive(:errors).and_return(array)
       begin
@@ -53,10 +53,9 @@ describe Group do
     end
     
     it 'should return list with error when empty name' do
-      error = 'anError'
       Group.should_receive(:check_name){ |*args| args[0].push('anError')}
       Group.should_receive(:check_account){ |*args| args[0]}
-      error = Group.errors('Group1', 'fake_account')
+      error = Group.errors('', 'fake_account')
       error.should include'anError'
     end
         
