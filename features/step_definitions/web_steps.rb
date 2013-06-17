@@ -45,7 +45,7 @@ Given(/^I am logged in$/) do
 end
 
 
-Given(/^there are not task$/) do
+Given(/^there are not tasks$/) do
   Task.destroy  
 end
 
