@@ -41,6 +41,7 @@ gem 'rack-test', :require => 'rack/test', :group => 'test'
 gem 'cucumber', :group => 'test'
 gem 'capybara', :group => 'test'
 gem 'dm-sqlite-adapter', :group => 'test'
+gem 'simplecov', :group => 'test'
 gem 'debugger'
 
 # Padrino Stable Gem
