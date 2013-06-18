@@ -1,0 +1,25 @@
+Feature: Add another user
+  In order to monitor the time consumed for some students
+  As a professor
+  I want to be able add another users to my groups
+
+  Background:
+    Given there are not tasks
+    And there are not groups
+    And there is a account with email "pepe@papa.com"
+    And I am logged in
+    And I create a group with name "Grupo1"
+    And I am on "the index group page"
+
+
+  Scenario: Happy path
+    Given I am on "Grupo1_add_user"
+    When I press "add_pepe@papa.com"
+    Then I should see "pepe@papa.com fue agregado a Grupo1"
+    
+    
+  Scenario: the student has been added before
+    Given I am on "Grupo1_add_user"
+    And I press "add_pepe@papa.com"
+    And I am on "Grupo1_add_user"
+    Then I should not see "pepe@papa.com"

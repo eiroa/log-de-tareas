@@ -5,7 +5,7 @@ Feature: List task
 
   Background:
     And I am logged in
-    Given there are not task
+    Given there are not tasks
     Given there are not groups
     Given there is group with name "Grupo1"
     

@@ -4,7 +4,7 @@ Feature: Create task
   I want to be able to create a task
 
   Background:
-    Given there are not task
+    Given there are not tasks
     And there are not groups
     And I am logged in
     And there is group with name "Grupo1"
