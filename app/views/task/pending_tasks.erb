@@ -24,16 +24,21 @@
 						<input class="btn-primary" type="submit" value="Estimar" id="estimation_<%= task.name %>_button">
 						<% else %>
 						<input type="hidden" name="is_estimation" value="0">
-						<input class="btn-primary" type="submit" value="Trackear" id="track_<%= task.name %>_button">
+						<input class="btn" type="submit" value="Trackear" id="track_<%= task.name %>_button">
 						<% end%>
 					</form></td>
+					
 
 				</tr>
 				<% end %>
 				</tr>
 			</table>
 			<% end %>
+			
 		</div>
+		<form  class="form-inline" action="/group" method="get">
+						<input class="btn" type="submit" value="Volver" id="cancelDoTask">
+					</form>
 	</div>
 </header>
 

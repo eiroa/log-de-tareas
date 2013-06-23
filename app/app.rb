@@ -125,12 +125,14 @@ module LogDeTareas
       if(params[:type]).eql?('Estimar')
         @task.estimatedTime = @minutes
         @task.save
-      else
+      elsif (params[:type]).eql?('Trackear')
         @task.elapsedTime = @minutes
+        @task.pending = false
         @task.save
+      
       end
       
-      
+      redirect '/pending'
     end
     
     ##Groups_controller

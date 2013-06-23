@@ -11,7 +11,7 @@
 			<ul>
 			  <% @list.each do |group| %>
 			  <li><%=group.name %>
-          <input type="button" id="<%=group.name%>" onClick="document.location = 'task?group_id=<%=group.id %>'" value="ver" />
+          <input class ="btn" type="button" id="<%=group.name%>" onClick="document.location = 'task?group_id=<%=group.id %>'" value="ver" />
         </li>
 			  <% end %>
       </ul>
@@ -24,7 +24,7 @@
   value="Crear nuevo grupo" class="btn btn-inverse form_exp_submit"/>
   </p>
   
-   <a href="pending"><button id="viewPendingTasksButton">Ver tareas pendientes</button></a>
+   <a  href="pending"><button class="btn" id="viewPendingTasksButton">Ver tareas pendientes</button></a>
   </span>
 	
 
