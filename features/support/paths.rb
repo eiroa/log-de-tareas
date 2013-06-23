@@ -23,6 +23,9 @@ module NavigationHelpers
 
     when /the create task\s?page/
 			'/task_create'
+			
+		when /the pending task\s?page/
+		  '/task/pending'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

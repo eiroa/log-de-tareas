@@ -26,9 +26,9 @@ Feature: List groups
     Given I am on "the index group page"
 	Then I shoud see "No tienes grupos creados"
 
-  @wip	
+@wip
   Scenario: Button to view pending tasks are present
 	Given I am on "the index group page"
     When I press "viewPendingTasksButton"
-    Then I should see "Pending tasks"
+    Then I should see "Tareas pendientes"
 	

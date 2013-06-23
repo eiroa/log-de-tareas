@@ -1,0 +1,37 @@
+<header class="jumbotron subhead" id="overview">
+	<div>
+
+		<h1>Tareas pendientes</h1>
+		<div class="well centerlogin">
+
+			<% if (@pending_tasks != nil) && !(@pending_tasks.empty?) %>
+
+			<table class="table" align="center" border="1">
+				<tr>
+					<th>Nombre de la tarea</th>
+					<th>Descripcion</th>
+					<th></th>
+
+					<% @pe <a href="/task/pending"><button id="viewPendingTasksButton">Ver tareas pendientes</button></a>nding_tasks.each do |task| %>
+				<tr>
+					<td><%= task.name %></td>
+					<td><%= task.get_description %></td>
+					<td>
+					<form  action="pay" method="get">
+						<input type="hidden" name="task_id" value="<%= task.id %>">
+						<% if task.estimatedTime == nil %>
+						<input class="btn-primary" type="submit" value="Estimar" id="estimation_<%= task.name %>_button">
+						<% else %>
+						<input class="btn-primary" type="submit" value="Trackear" id="track_<%= task.name %>_button">
+						<% end%>
+					</form></td>
+
+				</tr>
+				<% end %>
+				</tr>
+			</table>
+
+		</div>
+	</div>
+</header>
+

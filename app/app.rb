@@ -105,6 +105,10 @@ module LogDeTareas
         redirect "/group"
     end
     
+    get :pending_tasks do
+      render 'home/pending_tasks'
+    end
+    
     ##Groups_controller
  
     get '/group_create' do

@@ -9,7 +9,7 @@ Feature: List pending tasks
     And there are not groups
     And there is group with name "Grupo1"
     And there is task with name "Tarea1" for the group "Grupo1"
-    And I am assign a task with name "Tarea1" of the group "Grupo1"
+    And I have assigned a task with name "Tarea1" of the group "Grupo1"
     
 
   Scenario: Happy path - first task
@@ -26,9 +26,9 @@ Feature: List pending tasks
 
   Scenario: Estimation and time tracked pending    
     Given I an on "the pending tasks page"
-    Then I should see "estimationButton"
+    Then I should see "estimation_Tarea1_button"
     
 
   Scenario: Estimation done and time tracked pending    
-    Given I an on "the pending tasks page"
-    Then I should see "trackTimeButton"  
+    Given I am on "the pending tasks page"
+    Then I should see "track_Tarea1_button"  

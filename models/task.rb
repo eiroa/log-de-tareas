@@ -5,6 +5,7 @@ class Task
   property :id, Serial
   property :estimatedTime, Integer
   property :elapsedTime, Integer
+  property :pending , Boolean
   belongs_to :task_template
   belongs_to :account
   
@@ -18,6 +19,9 @@ class Task
     instance
   end  
   
+  def name
+    TaskTemplate.find_by_id(self.task_template.id).name
+  end
   
   def get_description()
     TaskTemplate.find_by_id(self.task_template.id).description
