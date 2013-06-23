@@ -24,9 +24,6 @@ LogDeTareas::App.controllers :task do
       render 'task/index'
   end
   
-  get :pending do
-      @pending_tasks= Task.find_all_by_account_and_pending(current_account,true)
-      render 'task/pending_tasks'
-    end
+  
 
 end

@@ -25,7 +25,7 @@ module NavigationHelpers
 			'/task_create'
 			
 		when /the pending task\s?page/
-		  '/task/pending'
+		  '/pending'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

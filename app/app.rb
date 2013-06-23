@@ -105,8 +105,9 @@ module LogDeTareas
         redirect "/group"
     end
     
-    get :pending_tasks do
-      render 'home/pending_tasks'
+    get :pending do
+      @pending_tasks= Task.find_all_by_account_id_and_pending(current_account.id,true)
+      render 'task/pending_tasks'
     end
     
     ##Groups_controller
