@@ -14,6 +14,7 @@ class BuilderTask
   
   def build()
     Task.create(@task_template, @account)
+    self
   end
   
   def whit_task_template(task_templateP)

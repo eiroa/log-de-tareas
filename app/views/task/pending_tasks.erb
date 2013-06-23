@@ -12,7 +12,7 @@
 					<th>Descripcion</th>
 					<th></th>
 
-					<% @pe <a href="/task/pending"><button id="viewPendingTasksButton">Ver tareas pendientes</button></a>nding_tasks.each do |task| %>
+				<% @pending_tasks.each do |task| %>
 				<tr>
 					<td><%= task.name %></td>
 					<td><%= task.get_description %></td>
@@ -30,7 +30,7 @@
 				<% end %>
 				</tr>
 			</table>
-
+			<% end %>
 		</div>
 	</div>
 </header>

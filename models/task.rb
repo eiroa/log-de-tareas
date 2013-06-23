@@ -5,14 +5,13 @@ class Task
   property :id, Serial
   property :estimatedTime, Integer
   property :elapsedTime, Integer
-  property :pending , Boolean
+  property :pending, Boolean
   belongs_to :task_template
   belongs_to :account
   
   def self.create(task_templateP, accountP)
     instance = self.new()
-    instance.estimatedTime = 0
-    instance.elapsedTime = 0
+    instance.pending = true
     instance.task_template = task_templateP
     instance.account = accountP
     instance.save
