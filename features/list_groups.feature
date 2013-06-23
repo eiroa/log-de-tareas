@@ -22,6 +22,13 @@ Feature: List groups
     Then I should see "Grupo2"
     
 
-	Scenario: I don't have groups
+  Scenario: I don't have groups
     Given I am on "the index group page"
-		Then I shoud see "No tienes grupos creados"
+	Then I shoud see "No tienes grupos creados"
+
+  @wip	
+  Scenario: Button to view pending tasks are present
+	Given I am on "the index group page"
+    When I press "viewPendingTasksButton"
+    Then I should see "Pending tasks"
+	
