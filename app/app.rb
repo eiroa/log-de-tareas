@@ -110,6 +110,25 @@ module LogDeTareas
       render 'task/pending_tasks'
     end
     
+    get :make_task do
+      @type = params[:is_estimation].eql?('0') ? "Trackear" : "Estimar"
+      @task = Task.find_by_id(params[:task_id])
+      render 'task/make_task'
+    end
+    
+    get :save_make_task do
+      @task = Task.find_by_id(params[:task_id])
+      @minutes = params[:horas].to_i * 60 + params[:minutos].to_i
+      
+      if(params[:type]).eql?('Estimar')
+        @task.estimatedTime = @minutes
+      else
+        @task.elapsedTime = @minutes
+      end
+      
+      
+    end
+    
     ##Groups_controller
  
     get '/group_create' do
@@ -144,6 +163,7 @@ module LogDeTareas
       
       begin
         @new_task = TaskTemplate.create(@task_name, @task_description, @group)
+        Task.create(@new_task, current_account)
         @list= TaskTemplate.find_all_by_group(@group)
         render 'task/index'    
       rescue ErrorsException => e

@@ -1,0 +1,19 @@
+<header class="jumbotron subhead" id="overview">
+	<div>
+
+		<h1><%= @type %></h1>
+		<div class="well centerlogin">
+
+			<h3> hacer la tarea de <%= @task.name %></h3>
+			<form action="save_make_task" method="get">
+				<input type="hidden" name="type" value="<%= @type %>">
+				<input type="hidden" id="task_id" value="<%=@task.id%>" />
+				Horas <input type="number" id="horas" />
+				Minutos <input type="number" id="minutos" />
+				<input type="submit" id="cargar" />
+			</form>
+						
+		</div>
+	</div>
+</header>
+

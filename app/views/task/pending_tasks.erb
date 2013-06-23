@@ -17,11 +17,13 @@
 					<td><%= task.name %></td>
 					<td><%= task.get_description %></td>
 					<td>
-					<form  action="pay" method="get">
+					<form action="make_task" method="get">
 						<input type="hidden" name="task_id" value="<%= task.id %>">
 						<% if task.estimatedTime == nil %>
+						<input type="hidden" name="is_estimation" value="1">
 						<input class="btn-primary" type="submit" value="Estimar" id="estimation_<%= task.name %>_button">
 						<% else %>
+						<input type="hidden" name="is_estimation" value="0">
 						<input class="btn-primary" type="submit" value="Trackear" id="track_<%= task.name %>_button">
 						<% end%>
 					</form></td>
