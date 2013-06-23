@@ -113,17 +113,21 @@ module LogDeTareas
     get :make_task do
       @type = params[:is_estimation].eql?('0') ? "Trackear" : "Estimar"
       @task = Task.find_by_id(params[:task_id])
+      
       render 'task/make_task'
     end
     
     get :save_make_task do
-      @task = Task.find_by_id(params[:task_id])
+      @task = Task.find_by_id((params[:task_id].to_i))
+      
       @minutes = params[:horas].to_i * 60 + params[:minutos].to_i
       
       if(params[:type]).eql?('Estimar')
         @task.estimatedTime = @minutes
+        @task.save
       else
         @task.elapsedTime = @minutes
+        @task.save
       end
       
       

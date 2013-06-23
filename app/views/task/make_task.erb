@@ -6,11 +6,11 @@
 
 			<h3> hacer la tarea de <%= @task.name %></h3>
 			<form action="save_make_task" method="get">
-				<input type="hidden" name="type" value="<%= @type %>">
-				<input type="hidden" id="task_id" value="<%=@task.id%>" />
-				Horas <input type="number" id="horas" />
-				Minutos <input type="number" id="minutos" />
-				<input type="submit" id="cargar" />
+				<input type="hidden" name="type" value="<%= @type %>"/>
+				<input type="hidden" name="task_id" value="<%=@task.id%>" />
+				<p>Horas: <input type="number" name="horas" /></p> 
+			  <p>Minutos: <input type="number" name="minutos" /></p>	
+				<input type="submit" value="Guardar" id="cargar" />
 			</form>
 						
 		</div>
