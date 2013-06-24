@@ -29,6 +29,24 @@ class Task
   def get_description()
     TaskTemplate.find_by_id(self.task_template.id).description
   end
+  
+  def self.update_time(task_id, account_id,type_update,mins,hs)
+        task = Task.find_by_id_and_account_id(task_id.to_i , account_id.to_i)      
+        minutes = mins.to_i * 60 + hs.to_i
+           
+        Task.validate_time(minutes)
+             
+        if(type_update).eql?('Estimar')
+        task.estimatedTime = minutes
+        task.save
+        return 'La estimacion ha sido ingresada correctamente'
+        elsif (type_update).eql?('Trackear')
+        task.elapsedTime = minutes
+        task.pending = false
+        task.save
+        return 'El tiempo consumido ha sido ingresado correctamente'     
+        end
+  end
    
   def self.validate_time(minutes)
     limit = 10000

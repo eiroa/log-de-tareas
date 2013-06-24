@@ -2,7 +2,9 @@
 	
 	<h2>Tareas pendientes</h2>
 	<%if @timeSavedMessage !=  nil%>
-	<h3><%= @timeSavedMessage%></h3>
+	<ul>
+	<li><h4><%= @timeSavedMessage%></h4></li>
+    </ul>
 	<% end %>
 	<div class="well centerlogin">
         <% if @InvalidMessage != nil %>
