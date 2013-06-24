@@ -1,9 +1,22 @@
 <div class="jumbotron subhead" id="overview">
 	
 	<h2>Tareas pendientes</h2>
-	
+	<%if @timeSavedMessage !=  nil%>
+	<h3><%= @timeSavedMessage%></h3>
+	<% end %>
 	<div class="well centerlogin">
-
+        <% if @InvalidMessage != nil %>
+	    <div class="error_frame">
+	    	<h5 class="error" >Error al ingresar tiempos:</h5>
+	    	
+		     <ul>
+		       
+		       <li><%= @InvalidMessage %></li>
+		       
+       		</ul>
+	    </div>
+	   	<% end %>
+          
 		<% if (@pending_tasks != nil) && !(@pending_tasks.empty?) %>
 
 		<table class="table" align="center" border="1">
@@ -14,7 +27,7 @@
 
 			<% @pending_tasks.each do |task| %>
 			<tr>
-				<td><%= task.name %></td>
+				<td><%= task.name %> - <%= task.group_name%></td>
 				<td><%= task.get_description %></td>
 				<td>
 				<form action="make_task" method="get">

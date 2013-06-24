@@ -22,8 +22,41 @@ class Task
     TaskTemplate.find_by_id(self.task_template.id).name
   end
   
+  def group_name
+    TaskTemplate.find_by_id(self.task_template.id).group.name
+  end
+  
   def get_description()
     TaskTemplate.find_by_id(self.task_template.id).description
   end
+   
+  def self.validate_time(minutes)
+    limit = 10000
+    
+    if minutes.nil?  ||  minutes == 0
+      raise InvalidTimeError.new("El tiempo ingresado no puede ser vacio")
+    elsif !minutes.is_a?(Integer)
+       raise InvalidTimeError.new("El tiempo ingresado debe ser un numero entero")
+    elsif minutes < 0
+       raise InvalidTimeError.new("El tiempo ingresado no puede ser negativo")
+  # Uncomment this for setting a limit
+  #  elsif minutes <= limit
+  #     raise InvalidTimeError.new("El tiempo ingresado es desproporcionado, ingrese un tiempo menor a #{limit}")
+    end 
+    
+  end
+  
+ 
 
+end
+
+
+################
+### Time exception set here
+###############
+
+class InvalidTimeError < Exception
+  def initialize(desc)
+    super(desc)
+  end
 end

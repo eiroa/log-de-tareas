@@ -112,27 +112,42 @@ module LogDeTareas
     
     get :make_task do
       @type = params[:is_estimation].eql?('0') ? "Trackear" : "Estimar"
-      @task = Task.find_by_id(params[:task_id])
+      @task = Task.find_by_id_and_account_id(params[:task_id] ,current_account.id )
       
       render 'task/make_task'
     end
     
     get :save_make_task do
-      @task = Task.find_by_id((params[:task_id].to_i))
+      @task = Task.find_by_id_and_account_id((params[:task_id].to_i) , current_account.id)
       
-      @minutes = params[:horas].to_i * 60 + params[:minutos].to_i
+      @minutes = params[:hours].to_i * 60 + params[:minutes].to_i
       
-      if(params[:type]).eql?('Estimar')
+      begin
+        Task.validate_time(@minutes)
+        
+        
+        if(params[:type]).eql?('Estimar')
         @task.estimatedTime = @minutes
         @task.save
-      elsif (params[:type]).eql?('Trackear')
+        @timeSavedMessage = 'La estimacion ha sido ingresada correctamente'
+        elsif (params[:type]).eql?('Trackear')
         @task.elapsedTime = @minutes
         @task.pending = false
         @task.save
+        @timeSavedMessage = 'El tiempo consumido ha sido ingresado correctamente'
       
-      end
+        end
+        
+       @pending_tasks= Task.find_all_by_account_id_and_pending(current_account.id,true)
+       render 'task/pending_tasks'
+          
+      rescue InvalidTimeError => e
+        @InvalidMessage = e.message
+        @pending_tasks= Task.find_all_by_account_id_and_pending(current_account.id,true)
+        render 'task/pending_tasks'
+      end 
       
-      redirect '/pending'
+      
     end
     
     ##Groups_controller

@@ -1,4 +1,4 @@
-@wip
+
 Feature: Enter estimated time
   In order to estimate a task
   As a student
@@ -6,30 +6,34 @@ Feature: Enter estimated time
 
   Background:
     Given I am logged in
-    And I have assigned the task with name "Task1" for the group "Grupo1"
+    And there are not tasks
+    And there are not groups
+    And there is group with name "Grupo1"
+    And I have assigned the task with name "Task1" of the group "Grupo1"
     And I am on "the index group page"
-    And I press "Grupo1"
-    And I press "Tarea1"
+    And I follow "viewPendingTasksButton"
+    And I press "estimation_Task1_button"
 
 
   Scenario: Happy path    
-    And I fill in "est_time" with "10"
+    And I fill in "minutes" with "10"
     When I press "submit"
-    Then I should see "La estimadacion ha sido ingresada correctamente"
-	
+    Then I should see "La estimacion ha sido ingresada correctamente"
+ 
+ @wip
   Scenario: Input a string in estimated time and see a error
-	  And I fill in "est_time" with "diez"
+	  And I fill in "minutes" with "diez"
 	  When I press "submit"
-	  Then I should see "El tiempo estimado debe ser un numero"
+	  Then I should see "El tiempo ingresado debe ser un numero entero positivo"
 	
 	Scenario: Input a negative time -10 in estimated time and see a error
-	  And I fill in "est_time" with "-10"
+	  And I fill in "minutes" with "-10"
 	  When I press "submit"
-	  Then I should see "El tiempo estimado debe ser un numero positivo"
+	  Then I should see "El tiempo ingresado no puede ser negativo"
 	
 	Scenario: estimated time is blank and see a error
-    And I fill in "est_time" with " "
+    And I fill in "minutes" with ""
     When I press "submit"
-    Then I should see "El tiempo estimado no puede ser vacio"
+    Then I should see "El tiempo ingresado no puede ser vacio"
 
 

@@ -1,4 +1,4 @@
-@wip
+
 Feature: Enter consumed time
   In order to estimate a task
   As a student
@@ -6,30 +6,34 @@ Feature: Enter consumed time
 
   Background:
     Given I am logged in
-    And I have assigned the task with name "Task1" and time estimated for the group "Grupo1"
+    And there are not tasks
+    And there are not groups
+    And there is group with name "Grupo1"
+    And I have assigned the task with name "Task1" of the group "Grupo1"
+    Given I have already assigned a time estimation to "Task1"
     And I am on "the index group page"
-    And I press "Grupo1"
-    And I press "Tarea1"
+    And I follow "viewPendingTasksButton"
+    And I press "track_Task1_button"
 
 
   Scenario: Happy path    
-    And I fill in "cons_time" with "10"
+    And I fill in "minutes" with "10"
     When I press "submit"
     Then I should see "El tiempo consumido ha sido ingresado correctamente"
-	
+@wip	
   Scenario: Input a string in consumed time and see a error
-	  And I fill in "cons_time" with "diez"
+	  And I fill in "minutes" with "diez"
 	  When I press "submit"
-	  Then I should see "El tiempo consumido debe ser un numero"
+	  Then I should see "El tiempo ingresado debe ser un numero"
 	
 	Scenario: Input a negative time -10 in consumed time and see a error
-	  And I fill in "cons_time" with "-10"
+	  And I fill in "minutes" with "-10"
 	  When I press "submit"
-	  Then I should see "El tiempo consumido debe ser un numero positivo"
+	  Then I should see "El tiempo ingresado no puede ser negativo"
 	
 	Scenario: consumed time is blank and see a error
-    And I fill in "cons_time" with " "
+    And I fill in "minutes" with ""
     When I press "submit"
-    Then I should see "El tiempo consumido no puede ser vacio"
+    Then I should see "El tiempo ingresado no puede ser vacio"
     
     
