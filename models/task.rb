@@ -49,7 +49,7 @@ class Task
   end
    
   def self.validate_time(minutes)
-    limit = 10000
+    #limit = 10000
     
     if minutes.nil?  ||  minutes == 0
       raise InvalidTimeError.new("El tiempo ingresado no puede ser vacio")
