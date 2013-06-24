@@ -1,38 +1,36 @@
-<header class="jumbotron subhead" id="overview">
-    <div>
-      
-      
-      <div class="well centerlogin">
-        <h4>Grupo: <%= @group.name %></h4>
-        
-        <% if @errors_task && !@errors_task.empty? %>
-        <div class="error_frame">
-        <h5 class="error" >Error en los argumentos:</h5>
-			     <ul>
-			       <% @errors_task.each do |error| %>
-			       <li><%=error.description %></li>
-			       <% end %>
-           </ul>
-        </div>
-        <% else %>
-        <h5>Nueva tarea</h5>
-		    <% end %>
-    
-    
-	      <form method='get' action='/task_new' noValidate='noValidate'>
-		    <%= csrf_token_field %>
-        
-	        <label for='name'>Name:</label>
-	        <input class="span4" type='text' id='task_name' name='task_name' placeholder="name"/>
-          
-          <label for='name'>Description:</label>
-	        <textarea class="span4" id='task_description' name='task_description' placeholder="task description"></textarea>
+<div class="jumbotron subhead" id="overview">
 	
-          <input type="hidden" name="group_id" value="<%=@group.id%>"/>
-	        <button type='submit' id="submit">Create</button> 
-          <button onClick="document.location = 'task?group_id=<%=@group.id %>'" type='button' id="cancelar">Cancelar</button>
-	      </form>
-    </div>
-  </div>
-</header>
+	<h2>Crear nueva tarea para el grupo <%= @group.name %></h2>
+	
+	<div class="well centerlogin">
+    
+	    <% if @errors_task && !@errors_task.empty? %>
+	    <div class="error_frame">
+	    	<h5 class="error" >Error en los argumentos:</h5>
+	    	
+		     <ul>
+		       <% @errors_task.each do |error| %>
+		       <li><%=error.description %></li>
+		       <% end %>
+       		</ul>
+	    </div>
+	   	<% end %>
 
+		<form method='get' action='/task_new' noValidate='noValidate'>
+	    	<%= csrf_token_field %>
+        	<label for='name'>Nombre:</label>
+        	<input class="span4" type='text' id='task_name' name='task_name' placeholder="nombre"/>
+        	
+        	<label for='name'>Descripción:</label>
+	        <textarea class="span4" id='task_description' name='task_description' placeholder="descripción de la tarea"></textarea>
+	
+          	<input type="hidden" name="group_id" value="<%=@group.id%>"/>
+	        
+			<div class="actions">
+	        	<button type="submit" id="submit" class="btn btn-inverse">Crear</button>
+	        	<button onClick="document.location = 'task?group_id=<%=@group.id %>'" type="button" class="btn" id="cancelar">Cancelar</button>
+	        	<!-- <a href="group" class="btn" id="cancelar">Cancelar</a> -->
+	    	</div>
+      	</form>
+	</div>
+</div>

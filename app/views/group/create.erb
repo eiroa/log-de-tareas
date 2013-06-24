@@ -1,30 +1,31 @@
-<header class="jumbotron subhead" id="overview">
-    <div>
-      <div class="well centerlogin">
-        
-        <% if @errors_group && !@errors_group.empty? %>
-        <div class="error_frame">
-        <h5 class="error" >Error en los argumentos:</h5>
-			     <ul>
-			       <% @errors_group.each do |error| %>
-			       <li><%=error.description %></li>
-			       <% end %>
-           </ul>
-        </div>
-        <% else %>
-        <h5>Nuevo grupo</h5>
-		    <% end %>
-    
-    
-	      <form method='get' action='/group_new' noValidate='noValidate'>
-		    <%= csrf_token_field %>
-	        <label for='name'>Name:</label>
-	        <input class="span4" type='text' id='group_name' name='group_name' placeholder="name"/>
+<div class="jumbotron subhead" id="overview">
 	
-	        <button type='submit' id="submit">Crear</button>
-          <button onClick="document.location = 'group'" type='button' id="cancelar">Cancelar</button> 
-	      </form>
-    </div>
-  </div>
-</header>
+	<h2>Nuevo grupo</h2>
+	
+	<div class="well centerlogin">
+    
+	    <% if @errors_group && !@errors_group.empty? %>
+	    <div class="error_frame">
+	    	<h5 class="error" >Error en los argumentos:</h5>
+	    	
+		     <ul>
+		       <% @errors_group.each do |error| %>
+		       <li><%=error.description %></li>
+		       <% end %>
+       		</ul>
+	    </div>
+	   	<% end %>
+
+		<form method='get' action='/group_new' noValidate='noValidate'>
+	    	<%= csrf_token_field %>
+        	<label for='name'>Nombre:</label>
+        	<input class="span4" type='text' id='group_name' name='group_name' placeholder="nombre"/>
+        
+			<div class="actions">
+	        	<input type="submit" id="submit" class="btn btn-inverse" value="Crear" />
+	        	<a href="group" class="btn" id="cancelar">Cancelar</a>
+	    	</div>
+      	</form>
+	</div>
+</div>
 

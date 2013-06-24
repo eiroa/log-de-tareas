@@ -1,28 +1,25 @@
-<span class="span6">
+<div class="jumbotron subhead" id="overview">
+	
+	<% if @new_task %>
+	<p>La tarea <%=@new_task.name%> ha sido creada correctamente</p>
+	<% end %>
+  
+	<h2>Tareas del grupo <%= @group.name %></h2>
 
-  
-  
-  
-  <% if @new_task %>
-  <p>La tarea <%=@new_task.name%> ha sido creada correctamente</p>
-  <% end %>
-  
-  
-	<% if @list && !@list.empty? %>
-  <h4>Estas son las tareas del grupo <span class="resalt"><%= @group.name %></span></h4>
+	<div class="well centerlogin">
+		<% if @list && !@list.empty? %>
 			<ul>
-			  <% @list.each do |task| %>
-			  <li><%=task.name %></li>
-			  <% end %>
-      </ul>
+				<% @list.each do |task| %>
+					<li><%=task.name %></li>
+				<% end %>
+	      	</ul>
 		<% else %>       
-		 <p>No hay tareas para el grupo <span class="resalt"><%= @group.name %></span></p>
+			<p>No hay tareas en este grupo</p>
 		<% end %>
-
-  <p>     
-  <input type="button" id="create_task" onClick="document.location = 'task_create?group_id=<%=@group.id%>'"
-  value="Crear tarea" class="btn btn-inverse form_exp_submit">
-  <input type="button" id="back" onClick="document.location = 'group'"
-  value="Volver" class="btn btn-inverse form_exp_submit">
-  </span>
-	</p>
+		
+		<div class="actions">
+			<input type="button" id="create_task" onClick="document.location = 'task_create?group_id=<%=@group.id%>'" value="Crear tarea" class="btn btn-inverse form_exp_submit">
+			<a href="group" class="btn" id="volver">Volver</a>
+		</div>
+	</div>
+</div>

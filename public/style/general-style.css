@@ -1,97 +1,97 @@
-body{
-    background-color: #DDD;
+body {
+	background-color: #DDD;
 }
 
-.body_frame{
-    height: auto;
-    min-height: 600px;
-    margin: 0;
-    padding: 0;
-    background-color: #EEF;
-    overflow: hidden;
+h1 {
+	margin: 0;
+	float: left;
+	color: silver;
+	font-size: 20px;
+	margin-left: 50px;
 }
 
-
-.logo{
-    float:left;
-    width: 100px;
-    height: 100px;
-    background-color: black;
+.actions {
+	margin-top: 50px;
 }
 
-.header{
-    margin: 0 30px;
-    background-color: #555555;
-    height: 100px;
-    margin-bottom: 30px;	
+.body_frame {
+	height: auto;
+	min-height: 600px;
+	margin: 0;
+	padding: 0;
+	background-color: #EEF;
+	overflow: hidden;
 }
 
-.info_frame{
-    padding: 0;
-    margin-left: 0;
-    height: 40px;
-    background-color: #222;
+.logo {
+	float: left;
+	width: 100px;
+	height: 100px;
+	background-color: black;
 }
 
-.info_frame li a{
-    font-weight: bold;
-    font-family: "Arial,sans-serif",Helvetica,Arial,Helvetica Neue;
-    color: #AAA;
-    text-decoration: none;
+.header {
+	margin: 0 30px;
+	background-color: #555555;
+	height: 100px;
+	margin-bottom: 30px;
 }
 
-.info_frame li a:hover{
-    color: #FFF;
+.info_frame {
+	padding: 0;
+	margin-left: 0;
+	height: 40px;
+	background-color: #222;
 }
 
-.info_frame li{
-    margin: 10px 30px 0 0;
-    padding: 0;
-    float: right;
-    list-style: none;
+.info_frame li a {
+	font-weight: bold;
+	font-family: "Arial,sans-serif", Helvetica, Arial, Helvetica Neue;
+	color: #AAA;
+	text-decoration: none;
 }
 
-
-
-.header p{
-    font-weight: bold;
-    font-size: 70px;
-    line-height: 90px;
-    text-indent: 40px;
-    color: #cccccc;
+.info_frame li a:hover {
+	color: #FFF;
 }
 
-.gear_frame{
-    float:left;
-    width: 200px;
-    height: 200px;
-    margin: 30px;
+.info_frame li {
+	margin: 10px 30px 0 0;
+	padding: 0;
+	float: right;
+	list-style: none;
 }
 
-.centerlogin{
-    width: 370px;
-    margin: 0 auto;
+.header p {
+	font-weight: bold;
+	font-size: 70px;
+	line-height: 90px;
+	text-indent: 40px;
+	color: #cccccc;
+}
+
+.gear_frame {
+	float: left;
+	width: 200px;
+	height: 200px;
+	margin: 30px;
+}
+
+.centerlogin {
+	width: 370px;
+	margin: 0 auto;
 }
 
 .error_frame {
-  margin-top: 40px;  
-  margin-bottom: 30px;  
+	margin-top: 40px;
+	margin-bottom: 30px;
 }
-
 
 .error {
-  color: red;  
+	color: red;
 }
 
-.resalt{
-  color: blue;
-  
-  
+.resalt {
+	color: blue;
 }
-
-
-
-
-
-
 

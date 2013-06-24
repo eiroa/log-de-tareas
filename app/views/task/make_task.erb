@@ -1,24 +1,22 @@
-<header class="jumbotron subhead" id="overview">
-	<div>
+<div class="jumbotron subhead" id="overview">
+	
+	<h2><%= @type %> la tarea <%= @task.name %></h2>
 
-		<h1><%= @type %></h1>
-		<div class="well centerlogin">
-
-			<h3> Hacer la tarea de <%= @task.name %></h3>
-			<form action="save_make_task" method="get">
-				<input type="hidden" name="type" value="<%= @type %>"/>
-				<input type="hidden" name="task_id" value="<%=@task.id%>" />
-				<p>Horas: <input type="number" name="horas" value="0"/></p> 
-			  <p>Minutos: <input type="number" name="minutos" value="0"/>	 </p>
-			  <p>
-				<input  class="btn" type="submit" value="Guardar" id="cargar" />
-				
-			</form>
-			<form  class="form-inline" action="/pending" method="get">
-						<input class="btn" type="submit" value="Cancelar" id="cancelDoTask">
-					</form>			
-			</p>		
-		</div>
+	<div class="well centerlogin">
+		
+		<form action="save_make_task" method="get">
+			<input type="hidden" name="type" value="<%= @type %>"/>
+			<input type="hidden" name="task_id" value="<%=@task.id%>" />
+			<p>Horas: <input type="number" name="horas" value="0"/></p> 
+			<p>Minutos: <input type="number" name="minutos" value="0"/></p>
+			
+			<div class="actions">
+	        	<input type="submit" id="cargar" class="btn btn-inverse" value="Guardar" />
+	        	<a href="group" class="btn" id="cancelar">Cancelar</a>
+	    	</div>
+		  
+		</form>
 	</div>
-</header>
+</div>
+
 

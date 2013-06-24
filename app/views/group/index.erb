@@ -1,30 +1,29 @@
-<span class="span6">
-
+<div class="jumbotron subhead" id="overview">
   
-  <% if @new_group %>
-  <p>El grupo <%=@new_group.name%> ha sido creado exitosamente</p>
-  <% end %>
+	<% if @new_group %>
+	<p>El grupo <%=@new_group.name%> ha sido creado exitosamente</p>
+	<% end %>
   
+	<h2>Grupos</h2>
   
-	<% if (@list != nil) && !(@list.empty?) %>
-  <h4>Estos son tus grupos</h4>
-			<ul>
-			  <% @list.each do |group| %>
-			  <li><%=group.name %>
-          <input class ="btn" type="button" id="<%=group.name%>" onClick="document.location = 'task?group_id=<%=group.id %>'" value="ver" />
-        </li>
-			  <% end %>
-      </ul>
-  <% else %>
-        <p>No tienes grupos creados</p>  
-  <% end %>
-
-  <p>     
-  <input type="button" onClick="document.location = 'group_create'"
-  value="Crear nuevo grupo" class="btn btn-inverse form_exp_submit"/>
-  </p>
-  
-   <a  href="pending"><button class="btn" id="viewPendingTasksButton">Ver tareas pendientes</button></a>
-  </span>
+  	<div class="well centerlogin">
+		<% if (@list != nil) && !(@list.empty?) %>
+		<ul>
+			<% @list.each do |group| %>
+			<li><%=group.name %>
+	      		<input class ="btn" type="button" id="<%=group.name%>" onClick="document.location = 'task?group_id=<%=group.id %>'" value="ver" />
+	    	</li>
+			<% end %>
+	    </ul>
+	  	<% else %>
+	        <p>No tienes grupos creados</p>  
+	  	<% end %>
+	
+	  	<div class="actions">
+			<a href="group_create" class="btn btn-inverse" id="viewPendingTasksButton">Crear nuevo grupo</a>
+			<a href="pending" class="btn" id="viewPendingTasksButton">Ver tareas pendientes</a>
+		</div>
+	</div>
+</div>
 	
 
