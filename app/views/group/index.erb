@@ -1,22 +1,21 @@
 <div class="jumbotron subhead" id="overview">
   
+	<h2>Grupos</h2>
+	
 	<% if @new_group %>
 	<p>El grupo <%=@new_group.name%> ha sido creado exitosamente</p>
 	<% end %>
-  
-	<h2>Grupos</h2>
   
   	<div class="well centerlogin">
 		<% if (@list != nil) && !(@list.empty?) %>
 		<ul>
 			<% @list.each do |group| %>
-			<li><%=group.name %>
-	      		<input class ="btn" type="button" id="<%=group.name%>" onClick="document.location = 'task?group_id=<%=group.id %>'" value="ver" />
-	    	</li>
+			<li><%=group.name %> <input type="button" id="<%=group.name%>" onClick="document.location = 'task?group_id=<%=group.id %>'" value="ver" /></li>
+			<!-- <li><%=group.name %> (<a href="task?group_id=<%=group.id %>" type="button" id="<%=group.name%>">ver</a>)</li> -->
 			<% end %>
 	    </ul>
 	  	<% else %>
-	        <p>No tienes grupos creados</p>  
+	        <p>No tienes grupos creados</p>
 	  	<% end %>
 	
 	  	<div class="actions">
@@ -26,4 +25,3 @@
 	</div>
 </div>
 	
-

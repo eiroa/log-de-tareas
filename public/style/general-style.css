@@ -7,11 +7,15 @@ h1 {
 	float: left;
 	color: silver;
 	font-size: 20px;
-	margin-left: 50px;
+	margin-left: 120px;
+}
+
+h2 {
+	text-align: center;
 }
 
 .actions {
-	margin-top: 50px;
+	margin-top: 30px;
 }
 
 .body_frame {
