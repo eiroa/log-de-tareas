@@ -15,6 +15,10 @@ describe Task do
   end
 
   describe 'validate_time' do
+    it 'should not raise Error when minutes are integer and not negative' do
+      lambda{Task.validate_time(2)}.should_not raise_exception(InvalidTimeError)
+    end
+    
     it 'should raise NegativeTimeError when minutes are negative' do
       lambda{Task.validate_time(-2)}.should raise_exception(NegativeTimeError)
     end
@@ -40,26 +44,30 @@ describe Task do
       Task.should_receive(:validate_time).and_return('')
     end
     
-    describe 'and type_update is "Estimar"' do
+    describe 'and estimatedTime is nil' do
       it 'should asign 20 on estimatedTime when minutes are 20' do
-        Task.update_time(1, 1, 'Estimar', 0, 20)
+        Task.update_time(1, 1, 0, 20)
         @task.estimatedTime.should eq 20
       end
       
       it 'should asign 80 on estimatedTime when hours is 1 and minutes are 20' do
-        Task.update_time(1, 1, 'Estimar', 1, 20)
+        Task.update_time(1, 1, 1, 20)
         @task.estimatedTime.should eq 80
       end
     end
     
-    describe 'and type_update is "Trackear"' do
+    describe 'and estimatedTime not is nil but elapsedTime is nil' do
+      before(:each) do
+        @task.estimatedTime = 1
+      end
+      
       it 'should asign 20 on elapsedTime when minutes are 20' do
-        Task.update_time(1, 1, 'Trackear', 0, 20)
+        Task.update_time(1, 1, 0, 20)
         @task.elapsedTime.should eq 20
       end
       
       it 'should asign 80 on elapsedTime when hours is 1 and minutes are 20' do
-        Task.update_time(1, 1, 'Trackear', 1, 20)
+        Task.update_time(1, 1, 1, 20)
         @task.elapsedTime.should eq 80
       end
     end
