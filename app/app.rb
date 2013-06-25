@@ -106,7 +106,7 @@ module LogDeTareas
     end
     
     get :pending do
-      @pending_tasks= Task.find_all_by_account_id_and_pending(current_account.id,true)
+      @pending_tasks = Task.find_all_by_account_id_and_pending(current_account.id, true)
       render 'task/pending_tasks'
     end
     
@@ -119,14 +119,13 @@ module LogDeTareas
     
     get :save_make_task do           
       begin        
-       @timeSavedMessage = Task.update_time(params[:task_id], current_account.id, params[:type] ,params[:hours],params[:minutes])       
-       @pending_tasks= Task.find_all_by_account_id_and_pending(current_account.id,true)
-       render 'task/pending_tasks'        
+        Task.update_time(params[:task_id], current_account.id, params[:type], params[:hours], params[:minutes])       
       rescue InvalidTimeError => e
         @InvalidMessage = e.message
-        @pending_tasks= Task.find_all_by_account_id_and_pending(current_account.id,true)
-        render 'task/pending_tasks'
-      end             
+      end
+      
+      @pending_tasks = Task.find_all_by_account_id_and_pending(current_account.id, true)
+      render 'task/pending_tasks'             
     end
     
     ##Groups_controller
@@ -160,7 +159,6 @@ module LogDeTareas
       @task_name = params['task_name']
       @task_description = params['task_description']
       
-      
       begin
         @new_task = TaskTemplate.create(@task_name, @task_description, @group)
         Task.create(@new_task, current_account)
@@ -170,11 +168,6 @@ module LogDeTareas
         @errors_task = e.errors
         render 'task/create'
       end 
-      
-      
-     
     end  
-
-
   end
 end

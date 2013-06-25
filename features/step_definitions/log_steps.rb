@@ -1,10 +1,4 @@
 
-Given(/^I have assigned the task with name "(.*?)" and time estimated for the group "(.*?)"$/) do |task_name, group|
-  
-end
-
-
-
 Given(/^I have already assigned a time estimation to "(.*?)"$/) do |task_name|
   account = Account.find_by_id(1)
   task = Task.find_by_account_id(account.id)

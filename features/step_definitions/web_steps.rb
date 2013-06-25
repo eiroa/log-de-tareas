@@ -46,7 +46,8 @@ end
 
 
 Given(/^there are not tasks$/) do
-  Task.destroy  
+  Task.destroy
+  TaskTemplate.destroy
 end
 
 

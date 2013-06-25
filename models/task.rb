@@ -30,36 +30,29 @@ class Task
     TaskTemplate.find_by_id(self.task_template.id).description
   end
   
-  def self.update_time(task_id, account_id,type_update,mins,hs)
+  def self.update_time(task_id, account_id, type_update, mins, hs)
         task = Task.find_by_id_and_account_id(task_id.to_i , account_id.to_i)      
         minutes = mins.to_i * 60 + hs.to_i
            
         Task.validate_time(minutes)
              
         if(type_update).eql?('Estimar')
-        task.estimatedTime = minutes
-        task.save
-        return 'La estimacion ha sido ingresada correctamente'
+          task.estimatedTime = minutes
         elsif (type_update).eql?('Trackear')
-        task.elapsedTime = minutes
-        task.pending = false
-        task.save
-        return 'El tiempo consumido ha sido ingresado correctamente'     
+          task.elapsedTime = minutes
+          task.pending = false
         end
+        
+        task.save
   end
    
   def self.validate_time(minutes)
-    #limit = 10000
-    
     if minutes.nil?  ||  minutes == 0
       raise InvalidTimeError.new("El tiempo ingresado no puede ser vacio")
     elsif !minutes.is_a?(Integer)
        raise InvalidTimeError.new("El tiempo ingresado debe ser un numero entero")
     elsif minutes < 0
        raise InvalidTimeError.new("El tiempo ingresado no puede ser negativo")
-  # Uncomment this for setting a limit
-  #  elsif minutes <= limit
-  #     raise InvalidTimeError.new("El tiempo ingresado es desproporcionado, ingrese un tiempo menor a #{limit}")
     end 
     
   end
