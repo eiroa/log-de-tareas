@@ -15,6 +15,10 @@ describe Task do
   end
 
   describe 'validate_time' do
+    it 'should not raise Error when minutes are integer and not negative' do
+      lambda{Task.validate_time(2)}.should_not raise_exception(InvalidTimeError)
+    end
+    
     it 'should raise NegativeTimeError when minutes are negative' do
       lambda{Task.validate_time(-2)}.should raise_exception(NegativeTimeError)
     end
