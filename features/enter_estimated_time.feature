@@ -18,7 +18,7 @@ Feature: Enter estimated time
   Scenario: Happy path    
     And I fill in "minutes" with "10"
     When I press "submit"
-    Then I should see "La estimacion ha sido ingresada correctamente"
+    Then I should see "Se ingresado correctamente el tiempo"
  
  @wip
   Scenario: Input a string in estimated time and see a error

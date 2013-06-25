@@ -19,7 +19,7 @@ Feature: Enter consumed time
   Scenario: Happy path    
     And I fill in "minutes" with "10"
     When I press "submit"
-    Then I should see "El tiempo consumido ha sido ingresado correctamente"
+    Then I should see "Se ingresado correctamente el tiempo"
 @wip	
   Scenario: Input a string in consumed time and see a error
 	  And I fill in "minutes" with "diez"

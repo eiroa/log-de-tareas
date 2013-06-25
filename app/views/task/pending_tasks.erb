@@ -1,33 +1,44 @@
 <div class="jumbotron subhead" id="overview">
-	
+
 	<h2>Tareas pendientes</h2>
 	<%if @timeSavedMessage !=  nil%>
 	<ul>
-	<li><h4><%= @timeSavedMessage%></h4></li>
-    </ul>
+		<li>
+			<h5><%= @timeSavedMessage%></h5>
+		</li>
+	</ul>
 	<% end %>
 	<div class="well centerlogin">
-        <% if @InvalidMessage != nil %>
-	    <div class="error_frame">
-	    	<h5 class="error" >Error al ingresar tiempos:</h5>
-	    	
-		     <ul>
-		       
-		       <li><%= @InvalidMessage %></li>
-		       
-       		</ul>
-	    </div>
-	   	<% end %>
-          
+		<% if @InvalidMessage != nil %>
+		<div class="error_frame">
+			<%if @timeSavedMessage !=  nil%>
+			<ul>
+				<li>
+					<h5><%= @timeSavedMessage%></h5>
+				</li>
+			</ul>
+			<% end %>
+			<h5 class="error" >Error al ingresar tiempos:</h5>
+
+			<ul>
+
+				<li>
+					<%= @InvalidMessage %>
+				</li>
+
+			</ul>
+		</div>
+		<% end %>
+
 		<% if (@pending_tasks != nil) && !(@pending_tasks.empty?) %>
 
-		<table class="table" align="center" border="1">
+		<table class="table" align="center" border="0">
 			<tr>
 				<th>Nombre de la tarea</th>
 				<th>Descripcion</th>
 				<th></th>
 
-			<% @pending_tasks.each do |task| %>
+				<% @pending_tasks.each do |task| %>
 			<tr>
 				<td><%= task.name %> - <%= task.group_name%></td>
 				<td><%= task.get_description %></td>
@@ -36,23 +47,25 @@
 					<input type="hidden" name="task_id" value="<%= task.id %>">
 					<% if task.estimatedTime == nil %>
 					<input type="hidden" name="is_estimation" value="1">
-					<input class="btn-primary" type="submit" value="Estimar" id="estimation_<%= task.name %>_button">
+					<input class="btn btn-inverse" type="submit" value="Estimar" id="estimation_<%= task.name %>_button">
 					<% else %>
 					<input type="hidden" name="is_estimation" value="0">
 					<input class="btn" type="submit" value="Trackear" id="track_<%= task.name %>_button">
 					<% end%>
 				</form></td>
-				
+
 			</tr>
 			<% end %>
 			</tr>
 		</table>
 		<% else %>
-		<p> No hay tareas pendientes </p>
+		<p>
+			No hay tareas pendientes
+		</p>1
 		<% end %>
-	
+
 		<div class="actions">
-			<a href="group" class="btn btn-inverse" id="volver">Volver</a>
+			<a href="group" class="btn" id="volver">Volver</a>
 		</div>
 	</div>
 </div>
