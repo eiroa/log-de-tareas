@@ -119,7 +119,7 @@ module LogDeTareas
     
     get :save_make_task do           
       begin        
-        Task.update_time(params[:task_id], current_account.id, params[:type], params[:hours], params[:minutes])       
+        Task.update_time(params[:task_id], current_account.id, params[:hours], params[:minutes])       
       rescue InvalidTimeError => e
         @InvalidMessage = e.message
       end

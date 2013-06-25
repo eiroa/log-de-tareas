@@ -30,16 +30,16 @@ class Task
     TaskTemplate.find_by_id(self.task_template.id).description
   end
   
-  def self.update_time(task_id, account_id, type_update, mins, hs)
+  def self.update_time(task_id, account_id, minutes, hours)
         task = Task.find_by_id_and_account_id(task_id.to_i , account_id.to_i)      
-        minutes = mins.to_i * 60 + hs.to_i
+        time = minutes.to_i * 60 + hours.to_i
            
-        Task.validate_time(minutes)
+        Task.validate_time(time)
              
-        if(type_update).eql?('Estimar')
-          task.estimatedTime = minutes
-        elsif (type_update).eql?('Trackear')
-          task.elapsedTime = minutes
+        if task.estimatedTime.nil?
+          task.estimatedTime = time
+        elsif task.elapsedTime.nil?
+          task.elapsedTime = time
           task.pending = false
         end
         
