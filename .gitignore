@@ -13,6 +13,7 @@ db/*.db
 .bundle
 .redcar
 .config
+.project
 coverage
 :memory
 InstalledFiles

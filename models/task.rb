@@ -48,11 +48,11 @@ class Task
    
   def self.validate_time(minutes)
     if minutes.nil?  ||  minutes == 0
-      raise InvalidTimeError.new("El tiempo ingresado no puede ser vacio")
+      raise EmptyTimeError.new
     elsif !minutes.is_a?(Integer)
-       raise InvalidTimeError.new("El tiempo ingresado debe ser un numero entero")
+       raise NotAnIntegerError.new
     elsif minutes < 0
-       raise InvalidTimeError.new("El tiempo ingresado no puede ser negativo")
+       raise NegativeTimeError.new
     end 
     
   end
@@ -62,12 +62,4 @@ class Task
 end
 
 
-################
-### Time exception set here
-###############
 
-class InvalidTimeError < Exception
-  def initialize(desc)
-    super(desc)
-  end
-end
