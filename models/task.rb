@@ -47,18 +47,10 @@ class Task
   end
    
   def self.validate_time(minutes)
-    if minutes.nil?  ||  minutes == 0
-      raise EmptyTimeError.new
-    elsif !minutes.is_a?(Integer)
-       raise NotAnIntegerError.new
-    elsif minutes < 0
-       raise NegativeTimeError.new
-    end 
-    
+    raise EmptyTimeError if (minutes.nil?  ||  minutes == 0)
+    raise NotAnIntegerTimeError if !minutes.is_a?(Integer)
+    raise NegativeTimeError if minutes < 0
   end
-  
- 
-
 end
 
 
